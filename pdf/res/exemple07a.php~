@@ -1,0 +1,159 @@
+<style type="text/css">
+<!--
+table { vertical-align: top; }
+tr    { vertical-align: top; }
+td    { vertical-align: top; }
+}
+-->
+</style>
+<page backcolor="#FEFEFE" backimg="./res/bas_page.png" backimgx="center" backimgy="bottom" backimgw="100%" backtop="0" backbottom="30mm" footer="date;heure;page" style="font-size: 10pt;color:blue;">
+    <bookmark title="Lettre" level="0" ></bookmark>
+    
+                <img style="width: 100%;"  src="./res/LOGO.jpg" alt="Logo">
+<i>
+        
+<table  border="0" style="position:relative;left:0px;top:-55;width: 100%;font-family:Courier, Helvetica, sans-serif;font-size: 9pt;color:blue;"  >
+<tr >
+<td>CED. PROF.16027</td><td>&nbsp;&nbsp;</td>
+<td>Negrete No.610 Tel. 38 2-10-76 &nbsp;Fax.38 1-69-39</td>
+</tr><tr>
+<td>REG. S.S.A. 3421</td><td></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CP.79000 Cd. Valles, S.L.P.</td>
+</tr>
+</table>        
+
+    </i> <hr style="color:blue;"><br clear="all" />
+    
+<?php
+$idcl=$_GET['idcl'];
+$fol=$_GET['fol'];
+include 'login.php';
+$hi="select * from historial where folio='$fol';"; 
+$hist=pg_query($conn, $hi);
+
+if(!$hist) {
+echo $hi;	
+	}
+	if (pg_num_rows($hist) > 0) {
+		while ($ro = pg_fetch_assoc($hist)) {
+	$nomb=$ro['nomcli'];
+	$doctor=$ro['doctor'];
+	$fecha=$ro['fecha'];
+
+
+}
+}else {
+echo "no hay nada";	
+	}?>  
+
+   <table border="0" style="position:relative;left:0px;width:100%;top:-25;font-family: Courier, Helvetica, sans-serif;font-size: 10pt;" >
+<tr>
+<td width="350">PACIENTE:&nbsp;<?php echo $nomb;?></td><td width="150">&nbsp;</td><td width="250">PROCEDENCIA:</td></tr>
+<tr>
+<td><?php echo $doctor;?></td><td width="150"></td><td width="250">FECHA:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $fecha;?></td>
+</tr>
+</table>
+ 
+      <hr style="color:blue;">
+    <br>
+    <table border="1" style="position:relative;left:0px;top:-10;width: 100%; text-align: left;font-family: Courier;font-size: 10pt;" >
+       <tr> <td WIDTH="250" ALIGN="center">
+            EXAMEN</td>
+            <td WIDTH="250" HEIGHT="15" ALIGN="center" >RESULTADOS
+            
+            </td> <td WIDTH="250" ALIGN="center" >VALORES DE REFERENCIA
+         </td>
+         
+         </tr>
+    </table> 
+  
+    <br>
+       <br><!--
+    <table cellspacing="0" style="width: 100%; border: solid 1px black; background: #E7E7E7; text-align: center; font-size: 10pt;">
+        <tr>
+            <th style="width: 12%">Produit</th>
+        
+        </tr>
+    </table>
+<?php
+    $nb = rand(5, 11);
+    $produits = array();
+    $total = 0;
+    for ($k=0; $k<$nb; $k++) {
+        $num = rand(100000, 999999);
+        $nom = "le produit n°".rand(1, 100);
+        $qua = rand(1, 20);
+        $prix = rand(100, 9999)/100.;
+        $total+= $prix*$qua;
+        $produits[] = array($num, $nom, $qua, $prix, rand(0, $qua));
+?>
+    <table cellspacing="0" style="width: 100%; border: solid 1px black; background: #F7F7F7; text-align: center; font-size: 10pt;">
+        <tr>
+            <td style="width: 12%; text-align: left"><?php echo $num; ?></td>
+            <td style="width: 52%; text-align: left"><?php echo $nom; ?></td>
+            <td style="width: 13%; text-align: right"><?php echo number_format($prix, 2, ',', ' '); ?> &euro;</td>
+            <td style="width: 10%"><?php echo $qua; ?></td>
+            <td style="width: 13%; text-align: right;"><?php echo number_format($prix*$qua, 2, ',', ' '); ?> &euro;</td>
+        </tr>
+    </table>
+<?php
+    }
+?>
+    <table cellspacing="0" style="width: 100%; border: solid 1px black; background: #E7E7E7; text-align: center; font-size: 10pt;">
+        <tr>
+            <th style="width: 87%; text-align: right;">Total : </th>
+            <th style="width: 13%; text-align: right;"><?php echo number_format($total, 2, ',', ' '); ?> &euro;</th>
+        </tr>
+    </table>-->
+    <table border="0" style="position:relative;left:0px;top:-10;width: 100%; text-align: left;font-family: Courier;font-size: 9pt;">
+<?php
+
+include 'login.php';
+
+$idcl=$_GET['idcl'];
+$fol=$_GET['fol'];
+$hi="select * from rel_analisis where folio='$fol';"; 
+$hist= pg_query($conn, $hi);
+
+if(!$hist) {
+echo $hi;	
+	}
+	if (pg_num_rows($hist) > 0) {
+	for($i=1;$i<=pg_num_rows($hist);$i++){
+	$nok=pg_fetch_assoc($hist);  
+
+		$nomkk=$nok['nombre'];
+		$idan=$nok['id'];
+		$vrf="select * from procesados where nom_anal='$nomkk' and folio='$fol'";
+		$vrfko=pg_query($conn, $vrf);
+
+echo "<tr><td WIDTH='300' Aling='right'><strong>".$nomkk."</strong></td><td></td><td></td><td></td><td></td><td></td></tr><br>";
+		while($no=pg_fetch_assoc($vrfko)){
+		
+	$vrd=$no['vref'];
+	$unid=$no['unidades'];
+	$com=$no['comentarios'];
+	$resu=$no['resultado'];
+	$max=$no['max'];
+	$min=$no['min'];
+	$res2=number_format($resu, 2, '.', ' ');
+	if($resu>$max||$resu<$min){
+		$fon="<font color='red'>";
+		$fon2="</font>";
+		}
+echo '<tr><td WIDTH="300" Align="left">&nbsp;&nbsp;&nbsp;&nbsp;'.$vrd.'</td>&nbsp;&nbsp;';
+echo '<td WIDTH="70" align="right">'.$fon.$res2.$fon2.'</td>&nbsp;&nbsp;';
+echo '<td WIDTH="30" align="left">'.$unid.'</td>
+<td WIDTH="170" align="right">'.$min.'-</td><td WIDTH="40" >'.$max.'</td><td WIDTH="30" align="left">'.$unid.'</td></tr><br/>';
+
+}
+		echo "<tr><td WIDTH='340' align='left'><div style='margin-left:50px;position:fixed;'>Nota: $com</div></td></tr>";
+}}
+?>  
+  </table>
+ 
+       <div style="width:35%;text-align:right;position:relative;left:500px;top:200;"><hr>
+            <br>Q.F.B.&nbsp;LUIS&nbsp;SIFUENTES&nbsp;MARTINEZ</div>
+                 
+            
+</page>

@@ -1,0 +1,104 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+	  
+	 $(".boton").click(function(){
+	  var nombrec = $("#nombrec").val();
+	  var emailc = $("#emailc").val();
+	  var message = $("#message").val();
+	  
+	  var inf = "nombrec="+nombrec+"&emailc="+emailc+"&message="+message;
+	  var archivo="mensajes.php";
+		if(nombrec == ""){
+			alert("Escriba su nombre por favor.");
+			return false;
+			} else if(emailc == ""){
+				alert("Escriba su correo electronico.");
+				return false;
+				} else if(message ==""){
+					alert("No escribio el mensaje.");
+					return false;
+					} else{
+		
+	  $.ajax({
+		  type:"POST",
+		  url: archivo,
+		  data: inf,
+		  success: function(respuesta){
+			 if(respuesta == "No puedes acceder directamente"){
+				 alert("Debes rellenar todos los campos");
+				 return false;
+				 }
+			if(respuesta == "Error"){
+				alert("Hubo un error al enviar el feedback");
+				return false;
+				}
+			  
+			  },
+			  error: function(respuesta){
+				  alert("hubo un problema con el servidor");
+			  
+			  }
+		  }); }
+	  
+	  });
+	  
+	$(".btn1").click(function(){
+		  var user = $("#user").val();
+		  var pas = $("#pass").val();
+		  
+		  
+		  var loged ="user="+user+"&pass="+pas;
+		  var loge="includes/valida.php";
+		  
+		$.ajax({
+		  type:"POST",
+		  url:  loge,
+		  data: loged,
+		  success: function(resp){
+	if(resp=="Exito session iniciada"){ alert("asasasasasassasas");}		  	
+		  				 
+			 //	document.location.href="index.php";
+				// alert("Debes rellenar todos los campos");
+				// document.getElementById("error").style.display="block";
+				 //return false;
+				 
+			  },
+			  error: function(resp){
+			 
+				// alert(resp);					
+					//document.location.href="index.php";
+				// document.getElementById("error").style.display="block";
+				 return false;
+				 
+			  }
+		  });
+		  });
+			
+	   function locate(numero){
+		
+		var pag = "dato="+numero;
+		 var rut = "includes/valida.php";
+		
+		  $.ajax({
+		  type:"POST",
+		  url:  rut,
+		  data: pag,
+		  success: function(respuesta){
+			 if(respuesta == "datos incompletos"){
+				 alert("Debes rellenar todos los campos");
+				// document.getElementById("error").style.display="block";
+				 return false;
+				 }
+					  
+			  },
+			  error: function(respuesta){
+			
+			  }
+		  });
+		  }
+	  });
+	  
+	  
+	  
+    
+  </script>
