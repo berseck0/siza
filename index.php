@@ -76,11 +76,12 @@
 </div>
 <div class="box">  
        <h3>Contacto Rapido <span class="icon">M</span></h3>           
-           <form action=" " method="POST">          
+           <form action=" " method="POST">  
+           <label>nombre</label>        
               <input type="text" id="nombrec"  name="name" size="10" class="inputfield" title="name" placeholder="su nombre" />
-               <br>
+               <label>Email</label>
               <input type="text" id="emailc" placeholder="su correo electronico" name="email" size="10" class="inputfield" title="email" />
-               <br>
+               <label>mesaje</label>
               <textarea id="message" rows="5" cols="" ></textarea>
                <br>
              <input type="button"  class="boton" value="enviar" id="btn" />                 
