@@ -229,7 +229,7 @@ function elegido(){
 	alert(m);
 }
 
-
+//registro de los precios en los analisis ***moduls/reg_analisis.php
 $(document).on("ready",registra)
 function registra(){
 	$("#RegPrecios .sas").on("click",regis2);
@@ -262,8 +262,7 @@ function regis2(){
 					}
 					});
 	}
-
-
+//registro de los analisis y sus valores de ref
 $(document).on("ready",reg_anal)
 function reg_anal(){
 	$("#RegAnal").on("click",registro)

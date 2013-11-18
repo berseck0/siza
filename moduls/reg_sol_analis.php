@@ -19,15 +19,22 @@ $cortesia=0;
 if(pg_num_rows($sh2)>0){
  echo "El Analisis: ".$nombre_analisis.",Ya Esta Registrado";
 }else{
-	$sql="insert into rel_analisis(id_cli,folio,hora,nombre_cli,id_anal,nom_anal,estatus,)
-	values($id_cl,'$folio','$hora','$nombre_cliente',$id_analisis,'$nombre_analisis',$status);";
+	$sql="insert into rel_analisis(id_cli,folio,hora,nombre_cli,id_anal,nombre_anal,estatus)values('$id_cl','$folio','$hora','$nombre_cliente','$id_analisis','$nombre_analisis','$status');";
 	$in=pg_query($conn,$sql);
 	if(!$in){
 		echo "Error con la sintaxis";
 	}else{
 		echo $folio;
 	}
-	
-
+}
+$seldesc="select * from descuentos where id_analisis='$id_analisis' and id_factura='$folio';";
+	$$seldesc2=pg_query($conn, $$seldesc);
+if(pg_num_rows($$seldesc2)>0){}
+	else{
+	$desc="insert into descuentos(id_factura,id_analisis,costo,descuento,cortesia)values('$folio','$id_analisis','$costo','$descuento','$cortesia')";
+	$desc2=pg_query($conn, $desc);
+	if (!$desc2) {
+		echo "error con la sintaxis 2";
+	}
 }
 ?>
