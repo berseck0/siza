@@ -19,7 +19,7 @@ $cortesia=0;
 if(pg_num_rows($sh2)>0){
  echo "El Analisis: ".$nombre_analisis.",Ya Esta Registrado";
 }else{
-	$sql="insert into rel_analisis(id_cli,idfactura,hora,nombre_cli,id_anal,nom_anal,estatus,)
+	$sql="insert into rel_analisis(id_cli,folio,hora,nombre_cli,id_anal,nom_anal,estatus,)
 	values($id_cl,'$folio','$hora','$nombre_cliente',$id_analisis,'$nombre_analisis',$status);";
 	$in=pg_query($conn,$sql);
 	if(!$in){

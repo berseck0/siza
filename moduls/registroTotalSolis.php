@@ -8,6 +8,7 @@ $doc 		=$_POST['dc'];
 $costo_total=$_POST['cstal'];
 $cobro_total=$_POST['cbtal'];
 $atendio 	=$_SESSION['usuario'];
+$id_anal	=$_POST['ana'];//esta pendiente por enviar
  include 'login.php';
  
 
@@ -25,5 +26,13 @@ $atendio 	=$_SESSION['usuario'];
  {
  	echo "Exito";
  }
+$reg2="insert into factura(id_factura,id_cli,total,fecha,id_doc,id_analisis,anticipo,atendio)values
+('$folio',$idcl,$costo_total,'$fecha','$doc','$id_anal','$cobro_total','$atendio')";
+$rg=pg_query($conn, $rg);
+if(!$rg){
+	echo $reg2;
+}
+
+
 }
 ?>
