@@ -492,7 +492,7 @@ function Registro22(analisis){
 						cobroref(solicitud);
    					}if(data!=solicitud){
    						alert(data);
-   					}					
+   					}
 			});
 }
 function eliminaSolicitud(datos){
@@ -511,7 +511,7 @@ function eliminaSolicitud(datos){
 						$(".lis2").html(data2);
 						});
     			descuento(folio,opcion);
-    			cobroref(folio);		
+    			cobroref(folio);
 		}
 	});
 
@@ -610,7 +610,7 @@ function regis(){
 	var liga="moduls/registroTotalSolis.php"
 	$.post(liga,datos,function(resp){
 		if(resp=="Exito"){
-			document.location.href="index.php?d=0&cb="+solicitud;
+			document.location.href="index.php?d=0&k=1&idcl="+id_clie+"&cb="+solicitud;
 		}else{
 			alert(resp);
 		}

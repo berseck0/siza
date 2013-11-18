@@ -38,8 +38,8 @@ CP.79000 Cd. Valles, S.L.P.
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi=" select historial.nomcli,historial.doctor,historial.atendido,historial.fecha,historial.titulo,historial.cobro,historial.precio,historial.id as
-folio,historial.pago,historial.edad, historial.fur,clientes.procedencia, clientes.direcion, clientes.telefono from clientes, historial where (historial.folio='$fol') and (clientes.id='$idcl');"; 
+$hi="select historial.nombre_cl,historial.doctor,historial.atendio,historial.procedencia,historial.fecha,historial.titulo,historial.total,historial.pago,historial.edad,historial.fur,
+clientes.direccion, clientes.telefono from clientes, historial where (historial.folio='$fol') and (clientes.id_cli='$idcl');"; 
 $hist=pg_query($conn, $hi);
 
 if(!$hist) {
@@ -47,21 +47,20 @@ echo $hi;
 	}
 	if (pg_num_rows($hist) > 0) {
 		while ($ro = pg_fetch_assoc($hist)) {
-	$nomb=$ro['nomcli'];
+	$nomb=$ro['nombre_cl'];
 	$doctor=$ro['doctor'];
 	$fecha=$ro['fecha'];
 	$titulo=$ro['titulo'];
 	$total=$ro['cobro'];
-	$subtotal=$ro['precio'];
+	$subtotal=$ro['total'];
 	$procede=$ro['procedencia'];
 	//$folio=$ro['folio'];
 	$fur=$ro['fur'];
 	$edad=$ro['edad'];
 	$pag=$ro['pago'];
-	$fol=$ro['folio'];
-	$dire=$ro['direcion'];
+	$dire=$ro['direccion'];
 	$tel=$ro['telefono'];
-	$aten=$ro['atendido'];
+	$aten=$ro['atendio'];
 	$pag=Round($pag,2);
 	$subtotal=Round($subtotal,2);
 	
@@ -92,7 +91,7 @@ echo $hi;
     <table border="1" style="position:relative;left:0px;top:-10;width: 100%; text-align: left;font-size: 8pt;" >
        <td>
            DESCRIPCION DEL ESTUDIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRECIO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRECIO(S)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            TOTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        </td>
@@ -102,7 +101,7 @@ echo $hi;
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select nombre , precio from rel_analisis where folio='$fol';"; 
+$hi="select nombre_anal , precio from rel_analisis where folio='$fol';"; 
 $hist= pg_query($conn, $hi);
 
 if(!$hist) {
@@ -111,7 +110,7 @@ echo $hi;
 	if (pg_num_rows($hist) > 0) {
 		echo '<table border="0" style="position:relative;left:10px;top: 5;width: 100%; text-align: left;font-size: 8pt;">';
 		while ($ro = pg_fetch_assoc($hist)) {
-	$analis=$ro['nombre'];
+	$analis=$ro['nombre_anal'];
 	$pre=$ro['precio'];
 	$pre=Round($pre,2);
 	$subtotal=Round($subtotal,2);
@@ -138,9 +137,9 @@ echo $hi;
     }
 
 ?>
-	<table border="0"style="position:absolute;left: 510px;top: 260;width: 100%; text-align: left;font-size: 8pt;">
+	<table border="0"style="position:absolute;left: 510px;top: 250;width: 100%; text-align: left;font-size: 8pt;">
 	<?php
-	echo "<tr><td></td><td>$&nbsp;</td><td>".$subtotal=Round($subtotal,2)."</td></tr>";
+	echo "<tr><td></td><td>&nbsp;</td><td>$".$subtotal=Round($subtotal,2)."</td></tr>";
 	echo "<tr><td><br></td><td><br></td><td><br></td></tr>
 	<tr><td><br></td><td><br></td><td><br></td></tr>";
 	if($top=='0'){

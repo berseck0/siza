@@ -1,6 +1,7 @@
 <?php
 	$el = $_GET['d'];
 	$cb = $_GET['cb'];
+	$k= $_GET['k'];
 switch($el){
 	case 1:
 			include  'moduls/analisis.php'; 
@@ -63,9 +64,13 @@ while ($p=pg_fetch_assoc($tabla)) {
 <?php }?>
 
 </tbody>
-</table><?}}if($el==0&& $cb!=''){
+</table><?}
+}
+
+if($el==0&& $cb!=''){
+	$idcl=$_GET['idcl'];
 //esto incluye la impresion pdf de cobro
-include '';
+echo '<iframe src="pdf/pdf.php?k='.$k.'&fol='.$cb.'&idcl='.$idcl.'" style="width:950px; height:1010px;" frameborder="0"></iframe>';
 }	
  echo "</article>";
 	

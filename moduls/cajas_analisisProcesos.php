@@ -17,7 +17,7 @@ $an35=pg_query($conn, $an34);
 
 switch ($titulo) {
     case 'Sra.':
-    case 'Srita.': 
+    case 'Srita.':
     case 'SRA.':
      case 'SRITA.':
         $v1="maxm";
@@ -28,7 +28,7 @@ switch ($titulo) {
     case 'JOVEN':
     case 'SR.':
         $v1="maxh";
-        $v2="minh"; 
+        $v2="minh";
         break;
     case 'niño':
     case 'niña':

@@ -1,5 +1,4 @@
 <?php
-
 $kual=$_GET['k'];
 if($kual=="1"){
     // get the HTML
@@ -18,7 +17,7 @@ if($kual=="1"){
 		//$html2pdf->pdf->setPrintHeader(false);
 		$html2pdf->pdf->setPrintFooter(false);
         $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-        $html2pdf->Output('SIZA LAB.pdf');
+       $html2pdf->Output('SIZA_LAB.pdf');
         
     }
     catch(HTML2PDF_exception $e) {
@@ -49,3 +48,5 @@ if($kual=="1"){
         echo $e;
         exit;
     }}
+
+?>

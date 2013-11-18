@@ -2,14 +2,16 @@
 include 'login.php';
 $fol=$_GET['fl'];
 
-$busca="select * from historial where folio='$fol';";
+$busca="select historial.idfactura,historial.id_clientes,historial.id_doc from historial where idfactura='$fol';";
 $encon=pg_query($conn, $busca);
 
 while ($rw=pg_fetch_assoc($encon)) {
-	$nombre=$rw['nombre_cl'];
+	//$nombre=$rw['nombre_cl'];
+	$cliente=$rw['id_clientes'];
 	$folio=$rw['folio'];
-	$doctor=$rw['doctor'];
-	$atendido=$rw['atendio'];
+	//$doctor=$rw['doctor'];
+	$doctor=$rw['id_doc'];
+	//$atendido=$rw['atendio'];
 }
 
 

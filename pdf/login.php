@@ -1,7 +1,7 @@
 <?php
 	$host = '127.0.0.1';
 	$user = 'postgres';
-	$dbname = 'siza';
+	$dbname = 'sizas';
 	//$password = "";
 	
 	$conn = pg_connect("host=".$host." user=".$user." dbname=".$dbname." ");

@@ -1,5 +1,4 @@
 <?php
- 
 $analisi 	= $_POST['analisis'];
 $nota		= $_POST['nota'];
 $precio		= $_POST['precio'];

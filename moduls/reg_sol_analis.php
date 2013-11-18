@@ -19,14 +19,15 @@ $cortesia=0;
 if(pg_num_rows($sh2)>0){
  echo "El Analisis: ".$nombre_analisis.",Ya Esta Registrado";
 }else{
-	$sql="insert into rel_analisis(id_cli,nombre_cli,folio,hora,precio,id_anal,nombre_anal,estatus,descuento,cortesia)
-	values($id_cl,'$nombre_cliente','$folio','$hora',$costo,$id_analisis,'$nombre_analisis',$status,$descuento,$cortesia);";
+	$sql="insert into rel_analisis(id_cli,idfactura,hora,nombre_cli,id_anal,nom_anal,estatus,)
+	values($id_cl,'$folio','$hora','$nombre_cliente',$id_analisis,'$nombre_analisis',$status);";
 	$in=pg_query($conn,$sql);
 	if(!$in){
 		echo "Error con la sintaxis";
 	}else{
 		echo $folio;
 	}
+	
 
 }
 ?>
