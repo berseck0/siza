@@ -7,6 +7,7 @@ $folio = utf8_decode($folio =$_POST['solis']);
 $ac				=$_POST['ac'];
 $nombre_cliente =utf8_encode($nombre_cliente =$_POST['nomcl']);
 $id_cl			=$_POST['idcl'];
+$doc 			=$_POST['doc'];
 //$fecha			=$_POST['fecha'];
 $hora 	=date("h:i:s");
 $status=0;
@@ -28,8 +29,8 @@ if(pg_num_rows($sh2)>0){
 	}
 }
 $seldesc="select * from descuentos where id_analisis='$id_analisis' and id_factura='$folio';";
-	$$seldesc2=pg_query($conn, $$seldesc);
-if(pg_num_rows($$seldesc2)>0){}
+	$seldesc2=pg_query($conn, $$seldesc);
+if(pg_num_rows($seldesc2)>0){}
 	else{
 	$desc="insert into descuentos(id_factura,id_analisis,costo,descuento,cortesia)values('$folio','$id_analisis','$costo','$descuento','$cortesia')";
 	$desc2=pg_query($conn, $desc);
@@ -37,4 +38,13 @@ if(pg_num_rows($$seldesc2)>0){}
 		echo "error con la sintaxis 2";
 	}
 }
+
+//registro de datos en la tabla factura
+$selfac="select * from factura where id_analisis='$id_analisis' and id_factura='$dolio';";
+$selfac2=pg_query($conn, $selfac);
+if(pg_num_rows($selfac2)>0){}
+	else{
+		$fac="insert into factura(id_factura,id_cli,id_doc,id_analisis)values('$folio','$id_cl','$doc','$id_analisis')";
+		$fact=pg_query($conn, $fac);
+	}
 ?>

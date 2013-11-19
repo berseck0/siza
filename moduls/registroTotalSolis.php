@@ -10,7 +10,6 @@ $cobro_total=$_POST['cbtal'];
 $atendio 	=$_SESSION['usuario'];
 $id_anal	=$_POST['ana'];//esta pendiente por enviar
  include 'login.php';
- 
 
  $rev="select * from historial where idfactura='$folio';";
  $reves=pg_query($conn, $rev);
@@ -25,12 +24,17 @@ $id_anal	=$_POST['ana'];//esta pendiente por enviar
  }else
  {
  	echo "Exito";
- }
+ }/*
 $reg2="insert into factura(id_factura,id_cli,total,fecha,id_doc,id_analisis,anticipo,atendio)values
 ('$folio',$idcl,$costo_total,'$fecha','$doc','$id_anal','$cobro_total','$atendio')";
 $rg=pg_query($conn, $rg);
 if(!$rg){
 	echo $reg2;
+}*/
+$reg="update factura set total='$costo_total',fecha='$fecha',id_doc='$doc',anticipo='$cobro_total',atendio='$atendio' where idfactura='$folio';";
+$upda=pg_query($conn, $reg);
+if(!$upda){
+	echo $reg;
 }
 
 

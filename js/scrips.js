@@ -293,7 +293,7 @@ function registro(){
 					}
 					});
 
-}
+}//fin reg_analisis
 
 $(document).on("ready",share)
 function share(){
@@ -443,7 +443,7 @@ function descuento(desconton,opcion){
 						var ds = "ams="+desconton+"&ops="+opcion;
 						var ls = "moduls/procesos.php";
 						$.get(ls,ds,function(data){
-    					$("#dsd").html(data);	
+    					$("#dsd").html(data);
 						});
 }
 function cobroref(folio){
@@ -465,7 +465,7 @@ function visibiliti(){
 		$(".operaciones").hide();
 		}
 }
-
+//registro de los analisis para la solicitud
 function Registro22(analisis){
 	var palabras = analisis.split(",");
 	var nombre 	=palabras[0];
@@ -476,8 +476,9 @@ function Registro22(analisis){
 	var nombre_cli  = document.getElementById("nom_clie").innerHTML;
 	var id_clie 	= document.getElementById("id_clie").innerHTML;
 	var fecha 		= document.getElementById("fecha").innerHTML;
+	var doc 		= $("#doctor_shar").val();
 	var liga	="moduls/reg_sol_analis.php";
-	var texto 	="nombre="+nombre+"&costo="+costo+"&id="+id+"&solis="+solicitud+"&ac=1&nomcl="+nombre_cli+"&idcl="+id_clie;
+	var texto 	="nombre="+nombre+"&costo="+costo+"&id="+id+"&solis="+solicitud+"&doc="+doc+"&ac=1&nomcl="+nombre_cli+"&idcl="+id_clie;
 	$.post(liga,texto,function(data){
 			if(data==solicitud){
 				var ls ="includes/list_analisisProceso.php";
@@ -494,6 +495,7 @@ function Registro22(analisis){
    					}
 			});
 }
+//fin de registro
 function eliminaSolicitud(datos){
 	var serie = datos.split(",");
 	var id_analis = serie[0];
@@ -529,7 +531,6 @@ function desconta2(){
 			alert(data);
 		}
 	});
-	
 }
 
 function cortesia1(){

@@ -39,7 +39,7 @@ include 'inset.php';
 $uper="delete from rel_analisis where folio in(select distinct on(folio) folio from rel_analisis where folio not in(select folio from historial));";
 $super=pg_query($conn,$uper)or die("fallo query".$uper);
 
-$tabl="SELECT DISTINCT ON (folio) nombre_cli, id_cli, hora, estatus, folio FROM rel_analisis WHERE  folio in(select folio from historial) and estatus = 0 ORDER BY folio DESC, nombre_cli DESC, hora DESC, id_cli DESC;";
+$tabl="SELECT DISTINCT ON (folio) nombre_cli, id_cli, hora, estatus, folio FROM rel_analisis WHERE  folio in(select idfactura from historial) and estatus = 0 ORDER BY folio DESC, nombre_cli DESC, hora DESC, id_cli DESC;";
 $tabla=pg_query($conn, $tabl);
 if(pg_num_rows($tabla)>0){
 echo "<table id='solis' ><thead>
