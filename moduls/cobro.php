@@ -1,7 +1,8 @@
 <?php
 	include 'login.php';
 		$folio=$_GET["fl"];
-		$tot="select * from rel_analisis where folio='$folio' ";//and cortesia=0
+		#$tot="select * from rel_analisis where folio='$folio' ";//and cortesia=0
+		$tot="select * from descuentos where id_factura='$folio'";
 		$total=pg_query($conn,$tot)or die("fallo query");
 
 		while ($p=pg_fetch_assoc($total)){

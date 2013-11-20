@@ -2,7 +2,7 @@
 	include 'inset.php';
 
 	$id2=$_GET['fol'];
-			$sql="select rel_analisis.nombre_anal,rel_analisis.id_anal,descuentos.id_factura,descuentos.id_analisis,descuentos.costo from descuentos,rel_analisis where rel_analisis.folio='$id2' and descuentos.id_factura='$id2';";
+			$sql="select rel_analisis.nombre_anal,rel_analisis.id_anal,descuentos.id_factura,descuentos.costo from descuentos,rel_analisis where rel_analisis.folio='$id2' and descuentos.id_factura='$id2';";
 			$td=pg_query($conn,$sql);
 			if(!$td){
 				echo $sql;
@@ -27,4 +27,4 @@
 			echo"</table>";
 		}
 	?>
-	
+	528cde5966f00

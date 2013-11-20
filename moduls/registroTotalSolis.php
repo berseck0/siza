@@ -31,7 +31,8 @@ $rg=pg_query($conn, $rg);
 if(!$rg){
 	echo $reg2;
 }*/
-$reg="update factura set total='$costo_total',fecha='$fecha',id_doc='$doc',anticipo='$cobro_total',atendio='$atendio' where idfactura='$folio';";
+/// actualiso la factura los campos que quedaron pendientes (:
+$reg="update factura set total='$costo_total',fecha='$fecha',id_doc='$doc',anticipo='$cobro_total',atendio='$atendio' where id_factura='$folio';";
 $upda=pg_query($conn, $reg);
 if(!$upda){
 	echo $reg;
