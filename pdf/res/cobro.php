@@ -38,8 +38,7 @@ CP.79000 Cd. Valles, S.L.P.
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select historial.nombre_cl,historial.doctor,historial.atendio,historial.procedencia,historial.fecha,historial.titulo,historial.total,historial.pago,historial.edad,historial.fur,
-clientes.direccion, clientes.telefono from clientes, historial where (historial.folio='$fol') and (clientes.id_cli='$idcl');"; 
+$hi="select historial.*,clientes.direccion, clientes.telefono,clientes.nombre,clientes.titulo,clientes.edad,clientes.direccion from clientes, historial where (historial.idfactura='$fol') and (clientes.id_cli='$idcl');"; 
 $hist=pg_query($conn, $hi);
 
 if(!$hist) {
@@ -47,7 +46,7 @@ echo $hi;
 	}
 	if (pg_num_rows($hist) > 0) {
 		while ($ro = pg_fetch_assoc($hist)) {
-	$nomb=$ro['nombre_cl'];
+	$nomb=$ro['nombre'];
 	$doctor=$ro['doctor'];
 	$fecha=$ro['fecha'];
 	$titulo=$ro['titulo'];
@@ -63,17 +62,15 @@ echo $hi;
 	$aten=$ro['atendio'];
 	$pag=Round($pag,2);
 	$subtotal=Round($subtotal,2);
-	
 }
 }else {
 echo $hi;	
-	}?>  
+	}?>
 
    <table border="0" style="position:relative;left:0px;width: 100%;top:-25;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;" >
 <tr><td></td> <td><strong>NOTA DE VENTA </strong></td><td></td><td></td></tr>
 <tr>
-<td><strong>NOMBRE DEL PACIENTE:</strong>&nbsp;&nbsp;<?php echo "$titulo"." "."$nomb"; ?>&nbsp;&nbsp;&nbsp;&nbsp;</td><td></td><td><strong>EDAD:</strong>&nbsp;&nbsp;<?echo $edad;?>&nbsp;</td><td> <strong>FECHA Y HORA:</strong>&nbsp;<?php echo $fecha; echo"&nbsp;"; echo date("G:H:s");?></td>
-
+<td><strong>NOMBRE DEL PACIENTE:</strong><?php echo "$titulo"." "."$nomb"; ?></td><td></td><td><strong>EDAD:</strong>&nbsp;&nbsp;<?echo $edad;?>&nbsp;</td><td> <strong>FECHA Y HORA:</strong>&nbsp;<?php echo $fecha; echo"||"; echo date("G:H");?></td>
 </tr>
 <tr><td><strong>DOCTOR:</strong>&nbsp;&nbsp;<?php echo $doctor;?></td><td></td><td></td><td><strong>TEL.:</strong>&nbsp;&nbsp;<?php echo $tel;?></td>
 </tr>
@@ -82,10 +79,9 @@ echo $hi;
 <td><strong>DOMICILIO:</strong>&nbsp;&nbsp;<?php echo $dire;?></td><td></td><td></td><td><?php if($titulo=="Sra."||$titulo=="Srita."){ echo '<strong>FUR:</strong>&nbsp;&nbsp;'.$fur.'';  }?></td>
 </tr>
 
-<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td></td><td></td><td><strong>FOLIO:</strong>&nbsp;&nbsp;<?php echo $fol;?></td></tr> 
-
+<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td></td><td><strong>FOLIO:</strong><?php echo $fol;?></td><td></td></tr> 
 </table>
- <div style="position:relative;left:595px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></div>
+ <div style="position:relative;left:545px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></div>
 
     <br>
     <table border="1" style="position:relative;left:0px;top:-10;width: 100%; text-align: left;font-size: 8pt;" >
@@ -101,7 +97,7 @@ echo $hi;
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select nombre_anal , precio from rel_analisis where folio='$fol';"; 
+$hi="select n.nombre_anal,d.costo from rel_analisis n join descuentos d on n.id_anal=d.id_analisis where n.folio='$fol' and d.id_factura='$fol';";
 $hist= pg_query($conn, $hi);
 
 if(!$hist) {
@@ -111,7 +107,7 @@ echo $hi;
 		echo '<table border="0" style="position:relative;left:10px;top: 5;width: 100%; text-align: left;font-size: 8pt;">';
 		while ($ro = pg_fetch_assoc($hist)) {
 	$analis=$ro['nombre_anal'];
-	$pre=$ro['precio'];
+	$pre=$ro['costo'];
 	$pre=Round($pre,2);
 	$subtotal=Round($subtotal,2);
 	$total=Round($total,2);
