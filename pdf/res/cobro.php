@@ -38,7 +38,7 @@ CP.79000 Cd. Valles, S.L.P.
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select historial.*,c.direccion,c.telefono,c.nombre,c.titulo,c.edad,c.direccion,f.anticipo,f.total,f.id_doc,f.atendio from clientes c, historial, factura f where (historial.idfactura='$fol') and (c.id_cli='$idcl') and(f.id_factura='$fol');";
+$hi="select historial.*,c.direccion,c.telefono,c.nombre,c.titulo,c.edad,c.empresa,c.direccion,f.anticipo,f.total,f.id_doc,f.atendio from clientes c, historial, factura f where (historial.idfactura='$fol') and (c.id_cli='$idcl') and(f.id_factura='$fol');";
 $hist=pg_query($conn, $hi);
 
 if(!$hist) {
@@ -52,7 +52,7 @@ echo $hi;
 	$titulo=$ro['titulo'];
 	$total=$ro['total'];
 	$subtotal=$ro['total'];
-	$procede=$ro['procedencia'];
+	$procede=$ro['empresa'];
 	//$folio=$ro['folio'];
 	$fur=$ro['fur'];
 	$edad=$ro['edad'];
@@ -79,9 +79,9 @@ echo $hi;
 <td><strong>DOMICILIO:</strong>&nbsp;&nbsp;<?php echo $dire;?></td><td></td><td></td><td><?php if($titulo=="Sra."||$titulo=="Srita."){ echo '<strong>FUR:</strong>&nbsp;&nbsp;'.$fur.'';  }?></td>
 </tr>
 
-<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td></td><td><strong>FOLIO:</strong><?php echo $fol;?></td><td></td></tr> 
+<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td></td><td><strong>FOLIO:</strong><?php echo $fol;?></td><td><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></td></tr> 
 </table>
- <div style="position:relative;left:535px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></div>
+<!--<div style="position:relative;left:535px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"></div>-->
 
     <br>
     <table border="1" style="position:relative;left:0px;top:-10;width: 100%; text-align: left;font-size: 8pt;" >
@@ -135,7 +135,7 @@ echo $hi;
 ?>
 	<table border="0"style="position:absolute;left: 510px;top: 250;width: 100%; text-align: left;font-size: 8pt;">
 	<?php
-	echo "<tr><td></td><td>&nbsp;</td><td>$".$subtotal=Round($subtotal,2)."</td></tr>";
+	echo "<tr><td></td><td>&nbsp;</td><td></td></tr>";//".$subtotal=Round($subtostal,2)."
 	echo "<tr><td><br></td><td><br></td><td><br></td></tr>
 	<tr><td><br></td><td><br></td><td><br></td></tr>";
 	if($top=='0'){
@@ -147,7 +147,6 @@ echo $hi;
 	   echo "<tr><td>ANTICIPO:</td><td>$&nbsp;</td><td>".$pag=Round($pag,2)."</td></tr>";
 	   if($res<=-1) {
  echo "<tr><td>CAMBIO:</td><td>$&nbsp;</td><td>".$cam=Round($cam=($res *-1),2)."</td></tr>";
-	 	   	
 	   	}else {
 	   echo "<tr><td>RESTAN:</td><td>$&nbsp;</td><td>".$res=Round($res,2)."</td></tr>";
 	}
