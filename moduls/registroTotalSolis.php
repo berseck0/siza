@@ -9,6 +9,8 @@ $costo_total=$_POST['cstal'];
 $cobro_total=$_POST['cbtal'];
 $atendio 	=$_SESSION['usuario'];
 $id_anal	=$_POST['ana'];//esta pendiente por enviar
+$fur 		=$_POST['fur'];
+
  include 'login.php';
 
  $rev="select * from historial where idfactura='$folio';";
@@ -17,7 +19,7 @@ $id_anal	=$_POST['ana'];//esta pendiente por enviar
  	echo "Se Encunetra Registrado".$folio;
  }else{
 
- $regis="insert into historial(id_clientes,idfactura,fecha,id_doc)values($idcl,'$folio','$fecha','$doc')";
+ $regis="insert into historial(id_clientes,idfactura,fecha,id_doc,fur)values($idcl,'$folio','$fecha','$doc','$fur')";
  $entro=pg_query($conn, $regis);
  if(!$entro){
  	echo $regis;
@@ -37,7 +39,6 @@ $upda=pg_query($conn, $reg);
 if(!$upda){
 	echo $reg;
 }
-
 
 }
 ?>

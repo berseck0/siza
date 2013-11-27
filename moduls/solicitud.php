@@ -20,6 +20,7 @@ echo $dat;
 while ($r=pg_fetch_assoc($datos)) {
 	$idcl=$r['id_cli'];
 	$nombre =$r['nombre'];
+	$fur=$r['fech_mestro'];
 }
 
 ?>
@@ -28,7 +29,8 @@ while ($r=pg_fetch_assoc($datos)) {
 <label>ID Cliente:</label><label class="dato" id="id_clie"><?echo $idcl;?></label>
 <label>Cliente:</label><label class="dato" id="nom_clie" ><?echo $nombre;?></label> 
 <label>ID Solicitud:</label><label class="dato" id="id_solis"><?echo $id;?></label>	
-<label>Fecha:</label><label class="dato" id="fecha"><? echo $date;?></label> 
+<label>Fecha:</label><label class="dato" id="fecha"><? echo $date;?></label>
+<input type="hidden" value="<?echo $fur;?>" name="fur" id="fur">
 	<div  class="doctor_shar"><label>Doctor(a):</label>
 		<input type="text" id="doctor_shar" placeholder="Nombre del doctor(a)" autocomplete="off" onblur="flip(thisValue)">
 		<ul class="lista2" id="doc" style="display:none;"></ul>

@@ -141,9 +141,8 @@
 		var datosdoc = $(this).serialize();//alert(datosdoc);
 		var liga = "includes/reg.php?r=1";		
 		$.post(liga,datosdoc,function(doc){
-			$('#for2').find('form').slideUp('normal',function(){					
+			$('#for2').find('form').slideUp('normal',function(){
 				$('#res').html(doc);
-				
 					});    setInterval(function() {
    					 $('#for2').find('form').slideDown('normal', function(){
    					 	$('#res').html(emp);
@@ -156,13 +155,11 @@
 			$.post(liga,datosemp,function(emp){
 				$('#for2').find('form').slideUp('normal',function(){
 					$('#res').html(emp);
-					
 				});setInterval(function() {
    					 $('#for2').find('form').slideDown('normal',function(){
    				 	document.getElementById("res").style.display="none";
    					 });
 					},   1000);
-						
 			});return false;
 		});
 });/*---------------------fin del prime inicioo------------------------------------------------
@@ -603,10 +600,11 @@ function regis(){
 	var nombre_cli  = document.getElementById("nom_clie").innerHTML;
 	var id_clie 	= document.getElementById("id_clie").innerHTML;
 	var fecha 		= document.getElementById("fecha").innerHTML;
+	var furs		= $("#fur").val();
 	var doc 		= $("#doctor_shar").val();
 	var cos_total	= $("#total_s").val();
 	var cobr_total 	= $("#cobro_s").val();
-	var datos="fl="+solicitud+"&nc="+nombre_cli+"&icl="+id_clie+"&fc="+fecha+"&dc="+doc+"&cstal="+cos_total+"&cbtal="+cobr_total;
+	var datos="fl="+solicitud+"&nc="+nombre_cli+"&icl="+id_clie+"&fur="+furs+"&fc="+fecha+"&dc="+doc+"&cstal="+cos_total+"&cbtal="+cobr_total;
 	var liga="moduls/registroTotalSolis.php"
 	$.post(liga,datos,function(resp){
 		if(resp=="Exito"){

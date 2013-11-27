@@ -38,7 +38,7 @@ CP.79000 Cd. Valles, S.L.P.
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select historial.*,clientes.direccion, clientes.telefono,clientes.nombre,clientes.titulo,clientes.edad,clientes.direccion from clientes, historial where (historial.idfactura='$fol') and (clientes.id_cli='$idcl');"; 
+$hi="select historial.*,c.direccion,c.telefono,c.nombre,c.titulo,c.edad,c.direccion,f.anticipo,f.total,f.id_doc,f.atendio from clientes c, historial, factura f where (historial.idfactura='$fol') and (c.id_cli='$idcl') and(f.id_factura='$fol');";
 $hist=pg_query($conn, $hi);
 
 if(!$hist) {
@@ -47,16 +47,16 @@ echo $hi;
 	if (pg_num_rows($hist) > 0) {
 		while ($ro = pg_fetch_assoc($hist)) {
 	$nomb=$ro['nombre'];
-	$doctor=$ro['doctor'];
+	$doctor=$ro['id_doc'];
 	$fecha=$ro['fecha'];
 	$titulo=$ro['titulo'];
-	$total=$ro['cobro'];
+	$total=$ro['total'];
 	$subtotal=$ro['total'];
 	$procede=$ro['procedencia'];
 	//$folio=$ro['folio'];
 	$fur=$ro['fur'];
 	$edad=$ro['edad'];
-	$pag=$ro['pago'];
+	$pag=$ro['anticipo'];
 	$dire=$ro['direccion'];
 	$tel=$ro['telefono'];
 	$aten=$ro['atendio'];
@@ -81,7 +81,7 @@ echo $hi;
 
 <tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td></td><td><strong>FOLIO:</strong><?php echo $fol;?></td><td></td></tr> 
 </table>
- <div style="position:relative;left:545px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></div>
+ <div style="position:relative;left:535px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></div>
 
     <br>
     <table border="1" style="position:relative;left:0px;top:-10;width: 100%; text-align: left;font-size: 8pt;" >
