@@ -990,6 +990,7 @@ hr{
 #v{
 	display: none;
 }
+
 #valore {
 	margin:0 auto;
 	display: none;
@@ -1019,7 +1020,11 @@ hr{
 	width: 97%;
 	-webkit-border-radius:5px;
 }
-
+#analisis form label{
+	width:16%;
+	display:inline-block;
+	margin-left: 1em;
+}
 
 /*------------------------fin del registro de naalisis*/
 /*-------------revisio de anlsis y solicitudes**/
@@ -1040,8 +1045,6 @@ hr{
 	display: inline;
 	text-align: left;
 }
-
-
 #procesarlis span{
 	color: #AAAAAA;
   	font-size: 1em;
@@ -1071,7 +1074,10 @@ hr{
 .analResul input[type='text']{
 	display:inline-block;
 }
-
+#vrfs{
+	width:14%;
+	display:inline-block;
+}
 /**-----------------historial del cliente ----------------------------------------*/
 #HDCL h2{
 	font-size: 1.7em;

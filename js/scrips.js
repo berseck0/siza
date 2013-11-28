@@ -630,7 +630,7 @@ function dellanalis(){
 	});
 
 }
-
+//proceso de resultados de analissi
 $(document).on("ready",oculta2)
 function oculta2(){
 	$("#proceso_de_registro").css("display","none")

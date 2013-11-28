@@ -3,23 +3,22 @@ include 'login.php';
 $id=$_POST['id'];
 $fol=$_POST['fol'];
 
-$com="select * from historial where folio='$fol'";
+$com="select h.idfactura,h.id_clientes,c.titulo,c.edad from historial h,clientes c  where h.id_clientes=c.id_cli and h.idfactura='$fol';";
 $conv=pg_query($conn, $com);
-if(pg_num_rows($conv)>0){
-	$k=pg_fetch_assoc($conv);
-		$titulo="Sr.";
-		$eda=0;
-	}
- $an34="select nombre_anal from rel_analisis where folio='$fol' and id_anal=$id";
+    if(pg_num_rows($conv)>0){
+	   $k=pg_fetch_assoc($conv);
+		  $titulo=$k['titulo'];
+		  $eda=$k['edad'];
+	   }
+$an34="select nombre_anal from rel_analisis where folio='$fol' and id_anal=$id";
 $an35=pg_query($conn, $an34);
     $jk=pg_fetch_assoc($an35);
         echo "<label>".$nomans=$jk['nombre_anal']."</label><br>";
-
 switch ($titulo) {
     case 'Sra.':
     case 'Srita.':
     case 'SRA.':
-     case 'SRITA.':
+    case 'SRITA.':
         $v1="maxm";
         $v2="minm";
         break;
@@ -99,9 +98,9 @@ for($i=1;$i<=pg_num_rows($buscas);$i++){
 <input type="text" name="Text<? echo $i;?>" maxlength="40">
 <?php
 if($min=='0'&& $max=='0'){
- echo "<span>$un</span><span>$min - $max</span><hr>";}
+ echo "<span id='vrfs'>$un</span><span>$min - $max</span><hr>";}
 else{
- echo "<span>$un</span><span>$min - $max</span><hr>";
+ echo "<span id='vrfs'>$un</span><span>$min - $max</span><hr>";
 }
 }
 echo"<input type='button' value='Registar'></form>";
