@@ -660,7 +660,41 @@ hr{
 	border-right: 1px solid #606060;
 	height: 25px;
 }
-
+/*----------lista de analisis en grupos*/
+#bs_txt{
+	background-color: #EDEDED;
+	display:inline-block;
+	border:0px;
+	border-radius: 5px 5px 0px 0px;
+	margin:0 0 1em 0;
+	padding:1px 2px 1px 0px;
+	width:35%;
+}
+#bs_txt input[type='button']{
+	margin:0px 0px 0px 7px;
+	width:25%;
+}
+#bs_txt input[type='text']{
+	width:70%;
+	border:none;
+	margin-left: 4px;
+}
+#analisis form fieldset #bs_analis_ul{
+	background-color: #EDEDED;
+	color:#133563;
+	height:auto;
+	position:fixed;
+	transition:all 2s ease 0;
+	width:27%;
+}
+.bs_lis li{
+	border-bottom: 1px dotted black;
+	font-size: 15px;
+}
+.bs_lis li:hover{
+	cursor:pointer;
+	background-color: #DBC895;
+}
 
 /*-------proceso de registro de solicitud del cliente-------------------------------------------*/
 .datos_clie,.operaciones{
@@ -879,11 +913,11 @@ hr{
 	padding: 0.1em 0em 0.1em 0.1em;
 	width: 99%;
 }
-
+/**---------lista de analisis para registra valores de referencia*/
 #analisis ul{
 	font-size: 1.2em;
 	font-style: normal;
-	text-align: left;	
+	text-align: left;
 	list-style: none;
 	height: 35em;
 	overflow: hidden;
@@ -964,11 +998,11 @@ hr{
     -webkit-box-shadow:0px 0px .5em #353535;
     -moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
-}	
+}
 	/*--------esta es lista de doctores---------------*/
 #lista{
 	display:none;
-	margin-top:2em; 
+	margin-top:2em;
 	overflow: auto;
 	height:35em;
 	}

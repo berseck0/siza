@@ -67,6 +67,24 @@ catch (PDOException $e){
 		echo $e->getMessage();
 	}
 
+}elseif ($op==4) {
+	try{
+		$ana=$_POST['an'];
+		$ana=strtoupper($ana);
+		$usuario="postgres";
+		$conn=new PDO('pgsql:host=127.0.0.1;dbname=sizas;',$usuario,$pass);
+		$sql="select nombre_ana,id_analis from precios where nombre_ana like '%$ana%' limit 3;";
+		foreach ($conn ->query($sql) as $d) {
+			if(pg_fetch_array($d)>0){}else{
+			$nombre=$d['nombre_ana'];
+			$id=$d['id_analis'];
+			echo '<li onClick="fly(\''.$id.','.$nombre.'\');">'.$nombre.'</li>';
+			}
+		}
+	}
+	catch (PDOException $e){
+		echo $e->getMessage();
+	}
 }
 
 ?>

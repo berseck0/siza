@@ -5,7 +5,6 @@
 	  var nombrec = $("#nombrec").val();
 	  var emailc = $("#emailc").val();
 	  var message = $("#message").val();
-	  
 	  var inf = "nombrec="+nombrec+"&emailc="+emailc+"&message="+message;
 	  var archivo="mensajes.php";
 		if(nombrec == ""){
@@ -197,7 +196,7 @@ var mov=ids.currentTarget.id;
 		  	break
 			}
 }
-
+/* registro de analisis con sus valores dereferencia*/
 $(document).on("ready",selec)
 function selec(){
 	$("#seleccion").on("select",selecto);
@@ -291,12 +290,13 @@ function registro(){
 					});
 
 }//fin reg_analisis
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(document).on("ready",share)
 function share(){
 	$("#buscar").on("keyup",buscaClien)
 	$("#buscar").on("keyup",buscaAnalisis)
 	$("#doctor_shar").on("keyup",buscadoc)
+	$("#bs_analisis").on("keyup",bus_ana)
 }
 
 function sas(){
@@ -354,7 +354,70 @@ function fill(thisValue) {
 		$('#buscar').val(thisValue);
 		setTimeout("$('#listado').hide();", 200);
 	}
-	$(document).on("ready",clienstopcion)
+
+function bus_ana(){
+	var buscar = $("#bs_analisis").val();
+	if(buscar.length<=0){
+		$("#bs_analis_ul").hide();
+		$("#bs_analis_ul").css("display","none");
+		}else{
+			var liga="includes/buscar.php";
+			var text="an="+buscar+"&l=4";
+			$.post(liga,text,function(data){
+				if(data.length>0){
+					$("#bs_analis_ul").show();
+					$("#bs_analis_ul").html(data);
+				}else{
+					$("#bs_analis_ul").hide();
+					$("bs_analis_ul").css("display","none");
+				}
+			});
+		}
+	}
+function fly(nombre){
+	var n=nombre.split(",");
+	$('#bs_analisis').val(n[1]);
+	setTimeout("$('#bs_analis_ul').hide();",200);
+}
+$(document).on("ready",agr_lis)
+function agr_lis(){
+	$('#btn_lis').on("click",agregalis)
+}
+function agregalis(){
+	var dato = $("#bs_analisis").val();
+	var anali= $("#an_primario").val();
+	var liga ="includes/RegGrupos.php";
+	var text="an="+dato+"&op=1&an2="+anali;
+	$.post(liga,text,function(data){
+		if(data == 'exito'){
+						$("#agregado").fadeOut(950);
+						setInterval(function() {
+    					$("#agregado").load(location.href+" #agregado>*","");
+							},   1110);
+   						$("#agregado").fadeIn(950); 
+   					}else{
+   						alert(data);
+   		}
+	});
+}
+function buscaAnalisis(){
+	var buscar=$("#buscar").val();
+	var liga = "includes/buscar.php";
+	var txt = "analisis="+buscar+"&l=2";
+	$.post(liga,txt,function(data){
+					if(data.length>0){
+						$("#listado").show();
+						$("#solisitudListado").html(data);
+									}
+									});
+}
+function flip(nombre){
+	$('#doctor_shar').val(nombre);
+	setTimeout("$('#doc').hide();", 200);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).on("ready",clienstopcion)
 	function clienstopcion(){
 		$('#titulo').change(function(){
 			var n = $("#titulo").val();
@@ -412,23 +475,6 @@ function datosClienteProcesar(nombre){
 	});
 }
 
-function buscaAnalisis(){
-	var buscar=$("#buscar").val();
-	var liga = "includes/buscar.php";
-	var txt = "analisis="+buscar+"&l=2";
-	$.post(liga,txt,function(data){
-					if(data.length>0){
-						$("#listado").show();
-						$("#solisitudListado").html(data);
-									}
-
-									});
-}
-function flip(nombre){
-
-	$('#doctor_shar').val(nombre);
-	setTimeout("$('#doc').hide();", 200);
-}
 
 function posclr(){
 	$(".clr").each(function(){	
