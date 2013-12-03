@@ -1,13 +1,12 @@
 <?php
-
-$nombre_analisis =utf8_encode($nombre_analisis = $_POST['nombre']);
+$nombre_analisis =strtoupper(utf8_encode($_POST['nombre']));
 $costo			=$_POST['costo'];
 $id_analisis 	=$_POST['id'];
-$folio = utf8_decode($folio =$_POST['solis']);
+$folio 			=$_POST['solis'];
 $ac				=$_POST['ac'];
-$nombre_cliente =utf8_encode($nombre_cliente =$_POST['nomcl']);
+$nombre_cliente =strtoupper(utf8_encode($_POST['nomcl']));
 $id_cl			=$_POST['idcl'];
-$doc 			=$_POST['doc'];
+$doc 			=strtoupper(utf8_encode($_POST['doc']));
 //$fecha			=$_POST['fecha'];
 $hora 	=date("h:i:s");
 $status=0;

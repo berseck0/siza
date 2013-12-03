@@ -463,21 +463,29 @@ input[type='button']:active,input[type='submit']:active {
 	line-height: normal;
 }
 
-.imgperf{
-	margin:0 2em 0 4em;
-	padding:0;
-	height:53%;
+#regis img{
+	border-radius: 10px;
+	max-width:80%;
+	min-width: 40%;
+	height:auto;
 }
-.imgperf , #img2{
+#img2{
+	float:right;
+	margin: 0em 4em 0em 0em;
 	width: 22%;
 	border:0px dotted #E5E5E5;
 }
-
-/*---------------------------fin-------------------------------------------------------------------*/
-#img2 {
-	float:right;
-	margin: 0em 8em 5em 0;
+.seccion img{
+	max-width:60%;
+	min-width: 35%;
+	margin:-5px 0px 5px 0px;
+	border-radius: 10px;
+	transition: width 1s, height 1s, transform 1s linear;
 }
+.seccion img:hover{
+	transform : scale(1.1);
+}
+/*---------------------------fin-------------------------------------------------------------------*/
 /*-------------------tabla de solicitudes--------------------------*/
 #solis {
 	border:0px solid #fff;
@@ -619,6 +627,14 @@ hr{
 		-webkit-border-radius: 5px solid #7E99AA;
 		transition: ease 2s;
 }
+.lista2{
+	border-radius: 0px;
+	border:0px;
+	margin:0px 0px 0px 5.2em;
+	position:fixed;
+	padding:0px;
+	width: 29%;
+}
 .doctor_shar{
 	border:1px solid white;
 	border-radius: 5px;
@@ -633,14 +649,9 @@ hr{
 	padding: 0px;
 	width: 45%;
 }
-.doctor_shar .lista2{
-	position:absolute;
-	left:19%;
-}
-
-.doctor_shar input,.lista2{
+.doctor_shar input{
 		border-radius: 0px;
-		width: 79%;
+		width: 70%;
 		margin:0px;
 		padding:0px;
 		border:0px;
@@ -649,15 +660,15 @@ hr{
 .doctor_shar input:hover,.doctor_shar input:focus,.doctor_shar input:active{ 
 	border:none;
 	box-shadow:none;
-}
+}	
 .doctor_shar label{
-	margin:0 1em 0 0;
+	margin:0px 1.5em 0px 0px;
 	padding-left:5px;
 	padding-right: 1px;
 	/*background-color: #A1D9FC;
 	border:1px solid #A1D9FC;
 	border-radius: 5px 0 0px 5px;*/
-	border-right: 1px solid #606060;
+	border-right: 2px solid #606060;
 	height: 25px;
 }
 /*----------lista de analisis en grupos*/
@@ -669,10 +680,12 @@ hr{
 	margin:0 0 1em 0;
 	padding:1px 2px 1px 0px;
 	width:35%;
+
 }
 #bs_txt input[type='button']{
 	margin:0px 0px 0px 7px;
 	width:25%;
+
 }
 #bs_txt input[type='text']{
 	width:70%;
@@ -755,7 +768,7 @@ hr{
 .datos_clie label,.operaciones label{
 	font-size:1em;
 	font-style:normal;
-	margin:0.3em 0.2em 2em 0em;
+	margin:0em 0.3em 0em 0em;
 	text-shadow:2px 3px 2px #585858;
 }
 .datos_clie .dato {

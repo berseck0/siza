@@ -1,18 +1,20 @@
 <?php
 session_start();
 $folio		=$_POST['fl'];
-$nombre_cli	=$_POST['nc'];
+$nombre_cli	= strtoupper($_POST['nc']);
 $idcl 		=$_POST['icl'];
 $fecha 		=$_POST['fc'];
-$doc 		=$_POST['dc'];
+$doc 		= strtoupper($_POST['dc']);
 $costo_total=$_POST['cstal'];
 $cobro_total=$_POST['cbtal'];
-$atendio 	=$_SESSION['usuario'];
+$atendio 	= strtoupper($_SESSION['usuario']);
 $id_anal	=$_POST['ana'];//esta pendiente por enviar
 $fur 		=$_POST['fur'];
+$nombre_cli = utf8_encode($nombre_cli);
 
  include 'login.php';
 
+if($cobro_total!='' && $doc!=''){
  $rev="select * from historial where idfactura='$folio';";
  $reves=pg_query($conn, $rev);
  if(pg_num_rows($reves)>0){
@@ -39,6 +41,12 @@ $upda=pg_query($conn, $reg);
 if(!$upda){
 	echo $reg;
 }
-
+}
+}else{
+	if ($doc=='') {
+	echo "no tiene doctor";
+	}elseif($cobro_total==''){
+		echo  "no ingreso un monto";
+	}
 }
 ?>

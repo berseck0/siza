@@ -82,14 +82,25 @@ if($p==2){
         <div id="agregado">
 <?php 
 include_once 'includes/inset.php';
-$an="select * from analisis where nombre='$noms2'";
+$an="select * from analisis where id='$sdi'";
 $ana = pg_query($conn,$an);
 if(pg_num_rows($ana)>0){
   echo "<div class='lis'>";
 echo $noms2;
-echo "<table >
+$un=pg_fetch_assoc($ana);
+if($un['unidades']==0){
+  echo "<table><th>valor de ref.</th><th>Metodo</th><th>Nota</th>";
+    while ($l=pg_fetch_assoc($ana)) {
+     $Nomb=$l['nombre'];
+     $vf=$l['vref'];
+     $metodo=$l['metodo'];
+     $not=$l['nota'];
+     echo '<tr><td>'.$vf.'</td><td>'.$metodo.'</td><td>'.$not.'</td>';
+    }echo "</table></div>";
+}else{
+echo "<table>
 <th>valor de ref.</th><th>hombre</th><th>mujer</th><th>niños</th><th>RN</th><th>unidad</th><th>Metodo</th><th>edad</th><th>edades</th>";
-  while ($s=pg_fetch_assoc($ana)) {
+  while ($s=pg_fetch_assoc($ana)){
       $nombree=$s['nombre'];
       $vf=$s['vref'];
       $maxh=$s['maxh'];
@@ -105,9 +116,9 @@ echo "<table >
       $edamax=$s['edamx'];
       $edamin=$s['edamin'];
       $edad=$s['edad'];  
-      echo '<tr><td>'.$vf.'</td><td>'.$maxh.' - '.$minh.'</td><td>'.$maxm.' - '.$minm.'</td><td>'.$maxn.' - '.$minn.'</td><td>'.$maxrn.' -'.$minrn.'</td><td>'.$unidades.'</td><td>'.$metodo.'</td><td>'.$edamax.'-'.$edamin.'</td><td>'.$edad.'</td></tr>';
-  }echo "</table></div>";
-
+echo '<tr><td>'.$vf.'</td><td>'.$maxh.' - '.$minh.'</td><td>'.$maxm.' - '.$minm.'</td><td>'.$maxn.' - '.$minn.'</td><td>'.$maxrn.' -'.$minrn.'</td><td>'.$unidades.'</td><td>'.$metodo.'</td><td>'.$edamax.'-'.$edamin.'</td><td>'.$edad.'</td></tr>';
+    }echo "</table></div>";
+  }
 }
 elseif (pg_num_rows($ana)==0) {
 
@@ -120,7 +131,7 @@ elseif (pg_num_rows($ana)==0) {
       echo "<table ><th>sub-analisis</th>";
       while ($sb=pg_fetch_assoc($pg_grp)) {
              $nombre=$sb['nombre_ana'];
-              echo '<tr><td>'.$nombre.'</td><td></td>';
+              echo '<tr><td>'.$nombre.'</td><td>X</td>';
         }echo "</table></div>";
   }
   else{
@@ -142,7 +153,7 @@ elseif (pg_num_rows($ana)==0) {
 
 <?php 
 include_once 'includes/inset.php';
-$bus_anal="select id_analis,nombre_ana from precios where nombre_ana not in(select nombre from analisis) and lugar='SIZA' order by id_analis ASC";
+$bus_anal="select id_analis,nombre_ana from precios where nombre_ana not in(select nombre from analisis) and lugar='SIZA' and id_analis not in(select id_grup from grupos) order by id_analis ASC";
 $sh = pg_query($conn, $bus_anal);
 if(pg_num_rows($sh)>0){
   echo "<ul>";

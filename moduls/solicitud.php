@@ -25,7 +25,7 @@ while ($r=pg_fetch_assoc($datos)) {
 
 ?>
 <div class="datos_clie">
-<label>SOLICITUD DE ANALISIS</label><br><br>
+<label>SOLICITUD DE ANALISIS</label><br>
 <label>ID Cliente:</label><label class="dato" id="id_clie"><?echo $idcl;?></label>
 <label>Cliente:</label><label class="dato" id="nom_clie" ><?echo $nombre;?></label> 
 <label>ID Solicitud:</label><label class="dato" id="id_solis"><?echo $id;?></label>	
@@ -33,7 +33,7 @@ while ($r=pg_fetch_assoc($datos)) {
 <input type="hidden" value="<?echo $fur;?>" name="fur" id="fur">
 	<div  class="doctor_shar"><label>Doctor(a):</label>
 		<input type="text" id="doctor_shar" placeholder="Nombre del doctor(a)" autocomplete="off" onblur="flip(thisValue)">
-		<ul class="lista2" id="doc" style="display:none;"></ul>
+		<ul class="lista2" id="doc" style="display:none;"></ul></input>
 	</div>
 </div>
 

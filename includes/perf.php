@@ -1,9 +1,9 @@
 
 <div  class="seccion">
 	<h3>Bienvenido</h3>
-		<fieldset class="imgperf">
-	 <img src="<?echo $_SESSION['imagen'];?>" width="190" height="160"/>
-		</fieldset>
+		<!--<fieldset class="imgperf">-->
+	 <img src="<?echo $_SESSION['imagen'];?>" />
+		<!--</fieldset>-->
 	<form action="includes/logout.php" method="post">
 		<label>Usuario&nbsp;:&nbsp;&nbsp;<?echo $_SESSION['usuario'];?></label><br/>
 		<label>tipo:<? if($_SESSION['tipo']== 1){ echo" Usuario";}else{echo $_SESSION['puesto'];}?></label><br /><br />

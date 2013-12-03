@@ -77,9 +77,9 @@ if ($archivo != ""){
 	
 <section id="regis">
 	<form id="img2" name="imagen" action="perf.php" enctype="multipart/form-data" method="POST"><br />
-		<div class="imgperf">
-		        <img  src="<?echo"../".$r;?> "width="190" height="160"/>
-		</div>
+		<!--<div class="imgperf">-->
+		        <img  src="<?echo"../".$r;?> "/>
+		<!--</div>-->
       <input name="archivo" type="file" class="casilla"  size="10" />
       <input id="btn" name="enviar" type="submit" class="boton"  value="cargar" />
 	  <input name="action" type="hidden" value="upload"  />
@@ -121,7 +121,7 @@ if ($archivo != ""){
 <?php
 if(isset($_POST['aceptar'])){
 	include '../includes/inset.php';
-	
+
 	$nombre=$_POST['nombre'];
 	$curp=$_POST['curp'];
 	$apellido=$_POST['apellidos'];
@@ -134,7 +134,6 @@ if(isset($_POST['aceptar'])){
 	$sexo=$_POST['sexo'];
 	$cp=$_POST['cp'];
 	$id=$_POST['id'];
-		 
 
 		$insert="update usuariosn set nombre='$nombre',apellido='$apellido',curp='$curp',n_tel='$num_tel',colonia='$colonia',direccion='$direccion',n_casa='$num',cp='$cp',ciudad='$ciudad',estado='$estado',sexo='$sexo' where idus='$id';";
 		$inse=pg_query($conn, $insert);
@@ -144,11 +143,8 @@ if(isset($_POST['aceptar'])){
 			  echo "<header><h3>Datos actualizados.</h3></header>";
 		}if($inse && $loged){echo '<script language="javascript" type="text/javascript">
 				alert("Su Registro Fue Exitoso!!");
-				
 			</script>';	
 		}
-	
-	
 
 ?>
 <?php
@@ -176,7 +172,6 @@ if ($_POST["action"] == "upload") {
 	$tipo = $_FILES["archivo"]['type'];
 	$archivo = $_FILES["archivo"]['name'];
 	$id = $_SESSION['id'];
-	
 if ($archivo != ""){
 	$ds="../logs/".$id;
 	$f=date(".m-d-y_H-i");
@@ -186,7 +181,7 @@ if ($archivo != ""){
 	$ren ="../logs/".$id."/".$id.$f."";
 	$temp_file = $_FILES['archivo']['tmp_name'];
 		if(move_uploaded_file($temp_file,$destino)) {
-				$status = "<h3>Archivo Cargado</h3>";			
+				$status = "<h3>Archivo Cargado</h3>";
 			rename($destino,$ren);
 			$foto ="update empleados set imagen='$des2' where idus='$id'";
 			$img=pg_query($conn, $foto);
@@ -199,7 +194,6 @@ if ($archivo != ""){
 						} else {
 							 $status = "<h3>Error. seleccione un archivo</h3>";
 								}
-				
 }
 	$codi=$_SESSION['id'];
 	$imgo="select imagen from empleados where idus='$codi';";
@@ -218,9 +212,9 @@ if ($archivo != ""){
 	
 <section id="regis">
 	<form id="img2" name="imagen" action="perf.php" enctype="multipart/form-data" method="POST"><br />
-		<div class="imgperf">
+		<!--<div class="imgperf">-->
 		        <img  src="<?echo"../".$r;?> "width="190" height="160"/>
-		</div>
+		<!--</div>-->
       <input name="archivo" type="file" class="casilla"  size="10" />
       <input id="btn" name="enviar" type="submit" class="boton"  value="cargar" />
 	  <input name="action" type="hidden" value="upload"  />
@@ -243,11 +237,10 @@ if ($archivo != ""){
 	<input type="text" value="<?echo $estado;?>"  name="ciudad"><br>
 	<label >Sexo</label>
       <input name="sexo" value="<?echo $sexo;?>" type="text"> 
-      <input name="id" value="<?echo $_SESSION['id'];?>" type="hidden">    
+      <input name="id" value="<?echo $_SESSION['id'];?>" type="hidden">
      <br>   
      <input id="btn" type="submit" value="aceptar" name="aceptar">
 	</form>
-	
 </section>
 
 </body>
@@ -256,7 +249,6 @@ if ($archivo != ""){
 <?php
 if(isset($_POST['aceptar'])){
 	include '../includes/inset.php';
-	
 	$nombre=$_POST['nombre'];
 	$puesto=$_POST['puesto'];
 	$email=$_POST['email'];
@@ -266,7 +258,6 @@ if(isset($_POST['aceptar'])){
 	$ciudad=$_POST['ciudad'];
 	$sexo=$_POST['sexo'];
 	$id=$_POST['id'];
-		 
 
 		$insert="update empleados set nombre='$nombre',puesto='$puesto',email='$email',direccion='$direccion',tel_casa='$num',estado='$ciudad',celular='$celular',sexo='$sexo' where idus='$id';";
 		$inse=pg_query($conn, $insert);
@@ -276,10 +267,7 @@ if(isset($_POST['aceptar'])){
 			  echo "<header><h3>Datos actualizados.</h3></header>";
 		}if($inse && $loged){echo '<script language="javascript" type="text/javascript">
 				alert("Su Registro Fue Exitoso!!");
-				
 			</script>';	
 		}
-	
-	
 }
 ?>
