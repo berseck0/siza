@@ -354,6 +354,22 @@ function fill(thisValue) {
 		$('#buscar').val(thisValue);
 		setTimeout("$('#listado').hide();", 200);
 	}
+/*-----elimina doctores------*/
+function eliminadoc(dato){
+	var liga="moduls/eliminar.php";
+	var text="dc="+dato+"&op=1";
+	$.post(liga,text,function(data){
+		alert(data);
+	});
+}
+function eliminaemp(dato){
+	var liga="moduls/eliminar.php";
+	var text="emp="+dato+"&op=2";
+	alert(dato);
+	$.post(liga,text,function(data){
+		alert(data);
+	});
+}
 
 function bus_ana(){
 	var buscar = $("#bs_analisis").val();

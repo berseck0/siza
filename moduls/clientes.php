@@ -39,9 +39,8 @@ if($P==2){
                       <option value="joven">joven</option>
                       <option value="niño">niño</option>
                       <option value="niña">niña</option>
-                     
+                      <option value="niña">RN</option>
                   </select><hr>
-	
 <label>Nombre:</label>
 <input name="nom" id="nombre" type="text" required ><hr>
 <label>Edad:</label>
@@ -50,7 +49,7 @@ if($P==2){
                   <option value="años">años</option>
                   <option value="meses">meses</option>
                   <option value="semanas">semanas</option>
-                  
+                  <option value="semanas">Días</option>
 </select>
                  <hr>
 <label>Telefono:</label>
@@ -82,6 +81,6 @@ if($P==2){
 <input type="button" id="btn" class="update" value="actualizar" name="actualizar">
 </div>
 </form>
-</div>	
+</div>
 </article>
 <?}?>

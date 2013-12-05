@@ -38,7 +38,7 @@ CP.79000 Cd. Valles, S.L.P.
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select historial.*,c.direccion,c.telefono,c.nombre,c.titulo,c.edad,c.empresa,c.direccion,f.anticipo,f.total,f.id_doc,f.atendio from clientes c, historial, factura f where (historial.idfactura='$fol') and (c.id_cli='$idcl') and(f.id_factura='$fol');";
+$hi="select historial.*,c.direccion,c.telefono,c.nombre,c.titulo,c.tiempo,c.edad,c.empresa,c.direccion,f.anticipo,f.total,f.id_doc,f.atendio from clientes c, historial, factura f where (historial.idfactura='$fol') and (c.id_cli='$idcl') and(f.id_factura='$fol');";
 $hist=pg_query($conn, $hi);
 
 if(!$hist) {
@@ -56,6 +56,7 @@ echo $hi;
 	//$folio=$ro['folio'];
 	$fur=$ro['fur'];
 	$edad=$ro['edad'];
+	$tiemp=$ro['tiempo'];
 	$pag=$ro['anticipo'];
 	$dire=$ro['direccion'];
 	$tel=$ro['telefono'];
@@ -70,16 +71,15 @@ echo $hi;
    <table border="0" style="position:relative;left:0px;width: 100%;top:-25;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;" >
 <tr><td></td> <td><strong>NOTA DE VENTA </strong></td><td></td><td></td></tr>
 <tr>
-<td><strong>NOMBRE DEL PACIENTE:</strong><?php echo "$titulo"." "."$nomb"; ?></td><td></td><td><strong>EDAD:</strong>&nbsp;&nbsp;<?echo $edad;?>&nbsp;</td><td> <strong>FECHA Y HORA:</strong>&nbsp;<?php echo $fecha; echo"||"; echo date("G:H");?></td>
+<td><strong>NOMBRE DEL PACIENTE:</strong><?php echo "$titulo"." "."$nomb"; ?></td><td><strong>EDAD:&nbsp;</strong><?echo $edad.' '.$tiemp;?></td><td> <strong>FECHA Y HORA:</strong>&nbsp;<?php echo $fecha; echo"||"; echo date("G:H");?></td>
 </tr>
-<tr><td><strong>DOCTOR:</strong>&nbsp;&nbsp;<?php echo $doctor;?></td><td></td><td></td><td><strong>TEL.:</strong>&nbsp;&nbsp;<?php echo $tel;?></td>
+<tr><td><strong>DOCTOR(A):</strong>&nbsp;&nbsp;<?php echo $doctor;?></td><td></td><td><strong>TEL.:</strong>&nbsp;&nbsp;<?php echo $tel;?></td>
 </tr>
-
 <tr>
-<td><strong>DOMICILIO:</strong>&nbsp;&nbsp;<?php echo $dire;?></td><td></td><td></td><td><?php if($titulo=="Sra."||$titulo=="Srita."){ echo '<strong>FUR:</strong>&nbsp;&nbsp;'.$fur.'';  }?></td>
+<td><strong>DOMICILIO:</strong>&nbsp;&nbsp;<?php echo $dire;?></td><td></td><td><?php if($titulo=="Sra."||$titulo=="Srita."){ echo '<strong>FUR:</strong>&nbsp;&nbsp;'.$fur.'';  }?></td>
 </tr>
 
-<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td></td><td><strong>FOLIO:</strong><?php echo $fol;?></td><td><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></td></tr> 
+<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td><strong>FOLIO:</strong><?php echo $fol;?></td><td><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></td></tr> 
 </table>
 <!--<div style="position:relative;left:535px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"></div>-->
 
@@ -91,13 +91,12 @@ echo $hi;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            TOTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        </td>
-        
     </table> <br> 
     <?php
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select n.nombre_anal,d.costo from rel_analisis n join descuentos d on n.id_anal=d.id_analisis where n.folio='$fol' and d.id_factura='$fol';";
+$hi="select n.nombre_anal,d.costo,d.cortesia from rel_analisis n join descuentos d on n.id_anal=d.id_analisis where n.folio='$fol' and d.id_factura='$fol';";
 $hist= pg_query($conn, $hi);
 
 if(!$hist) {
@@ -108,6 +107,7 @@ echo $hi;
 		while ($ro = pg_fetch_assoc($hist)) {
 	$analis=$ro['nombre_anal'];
 	$pre=$ro['costo'];
+	$cort=$ro['cortesia'];
 	$pre=Round($pre,2);
 	$subtotal=Round($subtotal,2);
 	$total=Round($total,2);
@@ -115,8 +115,11 @@ echo $hi;
 	$top=Round($top,2);
 	$res=$total-$pag;
 	$res=Round($res,2);
-	
-	echo"<tr><td WIDTH=370>".$analis."</td>";
+	if($cort==1){
+	echo"<tr><td WIDTH=370>*".$analis."</td>";
+	}else{
+		echo"<tr><td WIDTH=370>".$analis."</td>";
+	}
 	echo"<td WIDTH=70>$&nbsp;&nbsp;".$pre."</td></tr>";
 	
 	}
@@ -156,7 +159,7 @@ echo $hi;
     <div style="position:relative;left:0px;top: 100;width: 100%; text-align: left;font-size: 8pt;">
     <table  >
     <tr>
-    <td width="250">*PAGO HECHO EN UNA SOLA EXHIBICION*</td>
+    <td width="250">* ESTUDIOS DE  CORTESIA</td>
     <td width="450">NOTA: SU FACTURA SE EXTIENDE EN EL MES EN QUE SE REALIZA SU ESTUDIO.</td>
     
     </tr>

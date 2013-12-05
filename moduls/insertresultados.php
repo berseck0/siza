@@ -8,11 +8,9 @@ while ($rw=pg_fetch_assoc($encon)) {
 	$nombre=$rw['nombre'];
 	$cliente=$rw['id_clientes'];
 	$folio=$rw['idfactura'];
-	//$doctor=$rw['doctor'];
 	$doctor=$rw['id_doc'];
 	$atendido=$rw['atendio'];
 }
-
 ?>
 <article class="main">
 	<h3>LISTA DE ANALISIS SOLICITADOS</h3>
@@ -23,12 +21,22 @@ while ($rw=pg_fetch_assoc($encon)) {
 			<?php
 				$an="select * from rel_analisis where folio='$folio';";
 				$anal=pg_query($conn, $an);
-
 					echo "<ul>";
 				while ($w=pg_fetch_assoc($anal)) {
 					$analis=$w['nombre_anal'];
 					$id_an=$w['id_anal'];
-					echo '<li onClick="procesanalisis(\''.$id_an.'\',\''.$folio.'\')">'.$id_an.'-'.$analis.'</li>';
+					$q="select g.*,p.nombre_ana from grupos g, precios p where g.id_grup='$id_an' and g.id_analisis=p.id_analis";
+					$q1=pg_query($conn, $q) or die("fallo busqueda de grupos");
+					if(pg_num_rows($q1)>0){
+						echo $analis;
+						while ($w=pg_fetch_assoc($q1)) {
+							$idAnalis=$w['id_analisis'];
+   							$idNombre=$w['nombre_ana'];
+						echo '<li onClick="procesanalisis(\''.$idAnalis.'\',\''.$folio.'\')"><label class="subanal">'.$idAnalis.'-'.$idNombre.'</label></li>';
+							}
+					}else{
+						echo '<li onClick="procesanalisis(\''.$id_an.'\',\''.$folio.'\')">'.$id_an.'-'.$analis.'</li>';
+					}
 				}
 
 

@@ -1,0 +1,18 @@
+<?php 
+require 'login.php';
+$sel2="select nom_anal,unidades from analisis where id='74' limit 1";
+   
+$res2 = pg_query($conn, $sel2) or die ("Fallo query: $sel.<br/>");
+if(pg_num_rows($res2)>0) {
+       	while ($row4 = pg_fetch_assoc($res2)) {
+       	$nom = $row4['nom_anal']."";
+       	$uni = $row4['unidades']."";  
+       	echo $nom.'&nbsp;';
+       	
+echo '<input type="numeric" size="10" name="edad" maxlength="3"/>&nbsp;' ;
+echo $uni;
+
+
+}
+}else { echo 'nada';}
+?>

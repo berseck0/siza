@@ -45,7 +45,7 @@ if(pg_num_rows($tabla)>0){
 echo "<table id='solis' ><thead>
 	<tr>
 		<th></th>
-		<th>ID</th><th>Nombre</th><th>Folio</th><th>Hora</th><th>Factura</th><th>Finalizado</th>
+		<th>ID</th><th>Nombre</th><th>Folio</th><th>Hora</th><th>Finalizado</th>
 	</tr>
 </thead>
 <tbody>";
@@ -58,7 +58,7 @@ while ($p=pg_fetch_assoc($tabla)) {
 ?>
 	<tr>
 	    <td class="nom">SOLICITUD</td><td><?echo $idcl;?></td><td><?echo $nomcl;?></td><td class="fol1"><a href="index.php?d=7&fl=<?echo $folio;?>"><span><?echo $folio;?></span></a></td>
-	<td ><?echo $hora;?></td><td class="fol1"><span>si</span></td><td class="fol1"><span>ok</span></td>
+	<td ><?echo $hora;?></td><td class="fol1"><span>ok</span></td>
 	</tr>
 
 <?php }?>

@@ -7,11 +7,9 @@
 		<a onclick="locate(3);return false;" href="index.php?d=3"><li><span class="icon">L</span>Empleados</li></a>
 		<a onclick="locate(4);return false;" href="index.php?d=4"><li><span class="icon">]</span>Clientes</li></a>
 		<a onclick="locate(5);return false;" href="index.php?d=5"><li><span class="icon">#</span>Precios</li></a>
-		<a onclick="locate(6);return false;" href="index.php?d=6"><li><span class="icon">Æ</span>Promociones</li></a>
-		<a onclick="locate(6);return false;" href="index.php?d=6"><li><span class="icon">Æ</span>Almacen</li></a>
+		<!--<a onclick="locate(6);return false;" href="index.php?d=6"><li><span class="icon">Æ</span>Promociones</li></a>
+		<a onclick="locate(6);return false;" href="index.php?d=6"><li><span class="icon">Æ</span>Almacen</li></a>-->
 	</ul>
-	
-
 <?} else {?>
 
 <ul>

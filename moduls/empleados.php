@@ -76,7 +76,7 @@ if($_SESSIO['tipo']==1){
 
 <table id="solis" width="99%">
 	<thead>
-<th>id</th><th>nombre</th><th>puesto</th><th>eliminar</th><th>ver</th>
+<th>nombre</th><th>puesto</th><th>turno</th><th>eliminar</th><th>ver</th>
 	</thead>
 		<?php
 	include_once 'includes/inset.php';
@@ -91,18 +91,16 @@ if($_SESSIO['tipo']==1){
 		$puesto=$ro['puesto'];
 		$turno=$ro['turno'];
 		$cel=$ro['celular'];
-		
 ?> 
 	<tr>
 		<td><?=$nombre?></td>
 		<td><?=$puesto?></td>
 		<td><?=$turno?></td>
-		<td>X</td>
-		<td>L</td>
+		<td onClick="eliminaemp(<?=$id;?>)"><span class="icon">Â</span></td>
+		<td><span class="icon">z</span></td>
 	</tr>
-	<?php	
+	<?php
 		}
-	
 ?>
 </table>
 </div>
