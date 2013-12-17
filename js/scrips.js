@@ -359,15 +359,12 @@ function eliminadoc(dato){
 	var liga="moduls/eliminar.php";
 	var text="dc="+dato+"&op=1";
 	$.post(liga,text,function(data){
-		alert(data);
 	});
 }
-function eliminaemp(dato){
+function emp_dell(dato){
 	var liga="moduls/eliminar.php";
 	var text="emp="+dato+"&op=2";
-	alert(dato);
 	$.post(liga,text,function(data){
-		alert(data);
 	});
 }
 
@@ -527,17 +524,17 @@ function visibiliti(){
 //registro de los analisis para la solicitud
 function Registro22(analisis){
 	var palabras = analisis.split(",");
-	var nombre 	=palabras[0];
-	var costo 	=palabras[1];
-	var id 		=palabras[2];
-	var opcion=1;
+	var nombre 	 =palabras[0];
+	var costo 	 =palabras[1];
+	var id 		 =palabras[2];
+	var opcion 	 =1;
 	var solicitud   = document.getElementById("id_solis").innerHTML;
 	var nombre_cli  = document.getElementById("nom_clie").innerHTML;
 	var id_clie 	= document.getElementById("id_clie").innerHTML;
 	var fecha 		= document.getElementById("fecha").innerHTML;
 	var doc 		= $("#doctor_shar").val();
-	var liga	="moduls/reg_sol_analis.php";
-	var texto 	="nombre="+nombre+"&costo="+costo+"&id="+id+"&solis="+solicitud+"&doc="+doc+"&ac=1&nomcl="+nombre_cli+"&idcl="+id_clie;
+	var liga		="moduls/reg_sol_analis.php";
+	var texto 		="nombre="+nombre+"&costo="+costo+"&id="+id+"&solis="+solicitud+"&doc="+doc+"&ac=1&nomcl="+nombre_cli+"&idcl="+id_clie;
 	$.post(liga,texto,function(data){
 			if(data==solicitud){
 				var ls ="includes/list_analisisProceso.php";
@@ -715,7 +712,19 @@ function procesanalisis(id,nombre){
 		visibiliti2();
 	});
 }
-
+//////////////////////////////////////////////////////
+///		tabla de lista de solicitudes
+///		
+/////////////////////////////////////////////////////
+function altasolis(dato){
+	var liga="moduls/eliminar.php";
+	var text="fl="+dato+"&op=3";
+	$.post(liga,text,function(data){
+		if (data=="exito") {
+		document.location.href="index.php";
+		}
+	});
+}
 
 
   </script>

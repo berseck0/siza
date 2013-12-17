@@ -1,17 +1,17 @@
 <?php
-$nombre_analisis =strtoupper(utf8_encode($_POST['nombre']));
+include 'funciones.php';
+$nombre_analisis =formateo($_POST['nombre']);
 $costo			=$_POST['costo'];
 $id_analisis 	=$_POST['id'];
 $folio 			=$_POST['solis'];
 $ac				=$_POST['ac'];
-$nombre_cliente =strtoupper(utf8_encode($_POST['nomcl']));
+$nombre_cliente =formateo($_POST['nomcl']);
 $id_cl			=$_POST['idcl'];
-$doc 			=strtoupper(utf8_encode($_POST['doc']));
-//$fecha			=$_POST['fecha'];
-$hora 	=date("h:i:s");
-$status=0;
-$descuento=0;
-$cortesia=0;
+$doc 			=formateo($_POST['doc']);
+$hora 			=date("h:i:s");
+$status			=0;
+$descuento 		=0;
+$cortesia 		=0;
 
  include 'login.php';
 	$sh="select * from rel_analisis where nombre_anal='$nombre_analisis' and folio='$folio';";

@@ -1,16 +1,16 @@
 <?php
 session_start();
+include 'funciones.php';
 $folio		=$_POST['fl'];
-$nombre_cli	= strtoupper($_POST['nc']);
+$nombre_cli	= formateo($_POST['nc']);
 $idcl 		=$_POST['icl'];
 $fecha 		=$_POST['fc'];
-$doc 		= strtoupper($_POST['dc']);
+$doc 		= formateo($_POST['dc']);
 $costo_total=$_POST['cstal'];
 $cobro_total=$_POST['cbtal'];
-$atendio 	= strtoupper($_SESSION['usuario']);
+$atendio 	= formateo($_SESSION['usuario']);
 $id_anal	=$_POST['ana'];//esta pendiente por enviar
 $fur 		=$_POST['fur'];
-$nombre_cli = utf8_encode($nombre_cli);
 
  include 'login.php';
 

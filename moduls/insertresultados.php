@@ -13,7 +13,7 @@ while ($rw=pg_fetch_assoc($encon)) {
 }
 ?>
 <article class="main">
-	<h3>LISTA DE ANALISIS SOLICITADOS</h3>
+	<em>LISTA DE ANALISIS SOLICITADOS</em>
 	<div id="procesarlis"><label>Cliente:</label><span><?=$nombre;?></span><label>Folio:</label><span><?=$folio;?></span>
 		<label>Doctor:</label><span><?=$doctor;?></span><label>Atendido por:</label><span><?=$atendido;?></span>
 		<hr>

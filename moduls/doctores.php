@@ -96,13 +96,6 @@ De:
 	<thead>
 <th>id</th><th>nombre</th><th>dependencia</th><th>horario</th><th>eliminar</th><th>ver</th>
 	</thead>
-	<tr><td>id</td>
-		<td>nombre</td>
-		<td>dependencia</td>
-		<td>horario</td>
-		<td>eliminar</td>
-		<td>ver</td>
-	</tr>
 	<tr>
 		<?php
 	include_once 'includes/inset.php';

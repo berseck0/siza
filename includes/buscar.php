@@ -58,7 +58,7 @@ catch (PDOException $e){
 				$tit=$d['titulo'];
 				$iddc=$d['id_doc'];
 				$as=$tit." ".$nom;
-				echo '<li onClick="flip(\''.$as.'\');">'.$as.'</li>';
+				echo '<li onClick="flip(\''.$nom.'\');">'.$as.'</li>';
 			}
 		} 
 

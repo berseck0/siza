@@ -20,15 +20,38 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 	$(".various").fancybox({
-		maxWidth	: 800,
+		maxWidth	: 700,
 		maxHeight	: 600,
 		fitToView	: false,
-		width		: '70%',
-		height		: '70%',
+		width		: '90%',
+		height		: '100%',
 		autoSize	: false,
 		closeClick	: false,
 		openEffect	: 'none',
-		closeEffect	: 'none'
+		closeEffect	: 'none',
+
+		helpers : {
+        	overlay : {
+            	locked : false
+        	}
+    }
+	});
+	$(".various2").fancybox({
+		maxWidth	: 650,
+		maxHeight	: 500,
+		fitToView	: false,
+		width		: '90%',
+		height		: '100%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+
+		helpers : {
+        	overlay : {
+            	locked : false
+        	}
+    }
 	});
 });
  </script>

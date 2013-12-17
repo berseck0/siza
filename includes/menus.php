@@ -1,7 +1,7 @@
 <?if($_SESSION['logged']=="true"){?>
 
 <ul>
-		<a href="index.php"><li><span class="icon">S</span>Inicio</li></a>
+		<a href="index.php" ><li class="m_i_1"><span class="icon">S</span>Inicio</li></a>
 		<a onclick="locate(1)" href="index.php?d=1"><li><span class="icon">E</span>Analisis</li></a>
 		<a onclick="locate(2);return false;" href="index.php?d=2"><li><span class="icon">L</span>Doctores</li></a>
 		<a onclick="locate(3);return false;" href="index.php?d=3"><li><span class="icon">L</span>Empleados</li></a>
@@ -13,7 +13,7 @@
 <?} else {?>
 
 <ul>
-		<a href="index.php"><li><span class="icon">S</span>inicio</li></a>
+		<a href="index.php" ><li class="m_i_1"><span class="icon">S</span>inicio</li></a>
 		<a href="about.php"><li><span class="icon">"</span>nosotros</li></a>
 		<a href="dir.php"><li><span class="icon">7</span>dirección</li></a>
 		<a href="galeria.php"><li><span class="icon">N</span>galeria</li></a>
