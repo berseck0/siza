@@ -8,8 +8,6 @@ if($_SESSIO['tipo']==1){
 		$puesto=$ro['puesto'];
 		$fecha=$ro['fecha'];
 		$idem=$ro['idemp'];
-		
-		
 		}
 	}
 
@@ -19,7 +17,6 @@ if($_SESSIO['tipo']==1){
 <h2>Empleados</h2>	
 <label class="liga" id="registro" >Registrar un Empleado</label> 
 <label  class="liga" id="lista2">Lista de Empleados</label>
-	
 <div id="for2">
 <form id="inicio" class="emp" method="POST" action="">
 <br>
@@ -57,7 +54,6 @@ if($_SESSIO['tipo']==1){
 <label class="la">Masculino</label>
 <input type="radio" value="femenino" name="sexo">
 <label class="la">Femenino</label>
-
 <br>
 <input id="btn" type="submit" name="enviar" value="REGISTRAR">
 </div><br>
@@ -76,7 +72,7 @@ if($_SESSIO['tipo']==1){
 
 <table id="solis" width="99%">
 	<thead>
-<th>id</th><th>nombre</th><th>puesto</th><th>eliminar</th><th>ver</th>
+<th>nombre</th><th>puesto</th><th>turno</th><th>eliminar</th><th>ver</th>
 	</thead>
 		<?php
 	include_once 'includes/inset.php';
@@ -91,18 +87,16 @@ if($_SESSIO['tipo']==1){
 		$puesto=$ro['puesto'];
 		$turno=$ro['turno'];
 		$cel=$ro['celular'];
-		
-?> 
+?>
 	<tr>
 		<td><?=$nombre?></td>
 		<td><?=$puesto?></td>
 		<td><?=$turno?></td>
-		<td>X</td>
-		<td>L</td>
+		<td onClick="emp_dell('<?=$id?>')"><span class="icon">Â</span></td>
+		<td><span class="icon">z</span></td>
 	</tr>
-	<?php	
+	<?php
 		}
-	
 ?>
 </table>
 </div>

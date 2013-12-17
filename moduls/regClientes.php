@@ -2,22 +2,21 @@
 $opcion=$_POST['op'];
 if($opcion==1){
 
+include 'funciones.php';
 $titu		= $_POST['titu'];
-$nombre 	= $_POST['nom'];
+$nombre 	= formateo($_POST['nom']);
 $edad 		= $_POST['edad'];
 $tiempo	    = $_POST['tiempo'];
 $telefono	= $_POST['telefono'];
 $correo	    = $_POST['correo'];
-$empresa	= $_POST['empresa'];
-$ocupacion	= $_POST['ocupacion'];
+$empresa	= formateo($_POST['empresa']);
+$ocupacion	= formateo($_POST['ocupacion']);
 $fecha 	    = $_POST['fecha'];
-$direccion  = $_POST['direccion'];
-$localidad  = $_POST['localidad'];
+$direccion  = formateo($_POST['direccion']);
+$localidad  = formateo($_POST['localidad']);
 $sexo 		= $_POST['sexo'];
-$colonia    = $_POST['col'];
+$colonia    = formateo($_POST['col']);
 $fur        = $_POST['fur'];
-//$titu       = strtoupper($titu);
-$nombre     = strtoupper($nombre);
 
 include 'login.php';
 $veri="select * from clientes where nombre ='$nombre';";
@@ -38,22 +37,21 @@ if(pg_num_rows($si)==0){
             echo "El Usuario Ya Se Ecnuentra Registrado.";
          }
 }if ($opcion==2) {
-    $titu        = $_POST['titu'];
-    $nombre     = $_POST['nom'];
+    include 'funciones.php';
+    $titu       = $_POST['titu'];
+    $nombre     = formateo($_POST['nom']);
     $edad       = $_POST['edad'];
     $tiempo     = $_POST['tiempo'];
     $telefono   = $_POST['telefono'];
     $correo     = $_POST['correo'];
-    $empresa    = $_POST['empresa'];
-    $ocupacion  = $_POST['ocupacion'];
+    $empresa    = formateo($_POST['empresa']);
+    $ocupacion  = formateo($_POST['ocupacion']);
     $fecha      = $_POST['fecha'];
-    $direccion  = $_POST['direccion'];
-    $localidad  = $_POST['localidad'];
+    $direccion  = formateo($_POST['direccion']);
+    $localidad  = formateo($_POST['localidad']);
     $sexo       = $_POST['sexo'];
-    $colonia    = $_POST['col'];
+    $colonia    = formateo($_POST['col']);
     $fur        = $_POST['fur'];
-//$titu       = strtoupper($titu);
-    $nombre     = strtoupper($nombre);
 
 include 'login.php';
 $veri="select id_cli from clientes where nombre ='$nombre';";

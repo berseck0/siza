@@ -5,7 +5,6 @@
 	  var nombrec = $("#nombrec").val();
 	  var emailc = $("#emailc").val();
 	  var message = $("#message").val();
-	  
 	  var inf = "nombrec="+nombrec+"&emailc="+emailc+"&message="+message;
 	  var archivo="mensajes.php";
 		if(nombrec == ""){
@@ -141,9 +140,8 @@
 		var datosdoc = $(this).serialize();//alert(datosdoc);
 		var liga = "includes/reg.php?r=1";		
 		$.post(liga,datosdoc,function(doc){
-			$('#for2').find('form').slideUp('normal',function(){					
+			$('#for2').find('form').slideUp('normal',function(){
 				$('#res').html(doc);
-				
 					});    setInterval(function() {
    					 $('#for2').find('form').slideDown('normal', function(){
    					 	$('#res').html(emp);
@@ -156,13 +154,11 @@
 			$.post(liga,datosemp,function(emp){
 				$('#for2').find('form').slideUp('normal',function(){
 					$('#res').html(emp);
-					
 				});setInterval(function() {
    					 $('#for2').find('form').slideDown('normal',function(){
    				 	document.getElementById("res").style.display="none";
    					 });
 					},   1000);
-						
 			});return false;
 		});
 });/*---------------------fin del prime inicioo------------------------------------------------
@@ -200,7 +196,7 @@ var mov=ids.currentTarget.id;
 		  	break
 			}
 }
-
+/* registro de analisis con sus valores dereferencia*/
 $(document).on("ready",selec)
 function selec(){
 	$("#seleccion").on("select",selecto);
@@ -229,7 +225,7 @@ function elegido(){
 	alert(m);
 }
 
-
+//registro de los precios en los analisis ***moduls/reg_analisis.php
 $(document).on("ready",registra)
 function registra(){
 	$("#RegPrecios .sas").on("click",regis2);
@@ -262,8 +258,7 @@ function regis2(){
 					}
 					});
 	}
-
-
+//registro de los analisis y sus valores de ref
 $(document).on("ready",reg_anal)
 function reg_anal(){
 	$("#RegAnal").on("click",registro)
@@ -294,13 +289,14 @@ function registro(){
 					}
 					});
 
-}
-
+}//fin reg_analisis
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(document).on("ready",share)
 function share(){
 	$("#buscar").on("keyup",buscaClien)
 	$("#buscar").on("keyup",buscaAnalisis)
 	$("#doctor_shar").on("keyup",buscadoc)
+	$("#bs_analisis").on("keyup",bus_ana)
 }
 
 function sas(){
@@ -358,7 +354,83 @@ function fill(thisValue) {
 		$('#buscar').val(thisValue);
 		setTimeout("$('#listado').hide();", 200);
 	}
-	$(document).on("ready",clienstopcion)
+/*-----elimina doctores------*/
+function eliminadoc(dato){
+	var liga="moduls/eliminar.php";
+	var text="dc="+dato+"&op=1";
+	$.post(liga,text,function(data){
+	});
+}
+function emp_dell(dato){
+	var liga="moduls/eliminar.php";
+	var text="emp="+dato+"&op=2";
+	$.post(liga,text,function(data){
+	});
+}
+
+function bus_ana(){
+	var buscar = $("#bs_analisis").val();
+	if(buscar.length<=0){
+		$("#bs_analis_ul").hide();
+		$("#bs_analis_ul").css("display","none");
+		}else{
+			var liga="includes/buscar.php";
+			var text="an="+buscar+"&l=4";
+			$.post(liga,text,function(data){
+				if(data.length>0){
+					$("#bs_analis_ul").show();
+					$("#bs_analis_ul").html(data);
+				}else{
+					$("#bs_analis_ul").hide();
+					$("bs_analis_ul").css("display","none");
+				}
+			});
+		}
+	}
+function fly(nombre){
+	var n=nombre.split(",");
+	$('#bs_analisis').val(n[1]);
+	setTimeout("$('#bs_analis_ul').hide();",200);
+}
+$(document).on("ready",agr_lis)
+function agr_lis(){
+	$('#btn_lis').on("click",agregalis)
+}
+function agregalis(){
+	var dato = $("#bs_analisis").val();
+	var anali= $("#an_primario").val();
+	var liga ="includes/RegGrupos.php";
+	var text="an="+dato+"&op=1&an2="+anali;
+	$.post(liga,text,function(data){
+		if(data == 'exito'){
+						$("#agregado").fadeOut(950);
+						setInterval(function() {
+    					$("#agregado").load(location.href+" #agregado>*","");
+							},   1110);
+   						$("#agregado").fadeIn(950); 
+   					}else{
+   						alert(data);
+   		}
+	});
+}
+function buscaAnalisis(){
+	var buscar=$("#buscar").val();
+	var liga = "includes/buscar.php";
+	var txt = "analisis="+buscar+"&l=2";
+	$.post(liga,txt,function(data){
+					if(data.length>0){
+						$("#listado").show();
+						$("#solisitudListado").html(data);
+									}
+									});
+}
+function flip(nombre){
+	$('#doctor_shar').val(nombre);
+	setTimeout("$('#doc').hide();", 200);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).on("ready",clienstopcion)
 	function clienstopcion(){
 		$('#titulo').change(function(){
 			var n = $("#titulo").val();
@@ -416,23 +488,6 @@ function datosClienteProcesar(nombre){
 	});
 }
 
-function buscaAnalisis(){
-	var buscar=$("#buscar").val();
-	var liga = "includes/buscar.php";
-	var txt = "analisis="+buscar+"&l=2";
-	$.post(liga,txt,function(data){
-					if(data.length>0){
-						$("#listado").show();
-						$("#solisitudListado").html(data);
-									}
-
-									});
-}
-function flip(nombre){
-
-	$('#doctor_shar').val(nombre);
-	setTimeout("$('#doc').hide();", 200);
-}
 
 function posclr(){
 	$(".clr").each(function(){	
@@ -444,7 +499,7 @@ function descuento(desconton,opcion){
 						var ds = "ams="+desconton+"&ops="+opcion;
 						var ls = "moduls/procesos.php";
 						$.get(ls,ds,function(data){
-    					$("#dsd").html(data);	
+    					$("#dsd").html(data);
 						});
 }
 function cobroref(folio){
@@ -466,19 +521,20 @@ function visibiliti(){
 		$(".operaciones").hide();
 		}
 }
-
+//registro de los analisis para la solicitud
 function Registro22(analisis){
 	var palabras = analisis.split(",");
-	var nombre 	=palabras[0];
-	var costo 	=palabras[1];
-	var id 		=palabras[2];
-	var opcion=1;
+	var nombre 	 =palabras[0];
+	var costo 	 =palabras[1];
+	var id 		 =palabras[2];
+	var opcion 	 =1;
 	var solicitud   = document.getElementById("id_solis").innerHTML;
 	var nombre_cli  = document.getElementById("nom_clie").innerHTML;
 	var id_clie 	= document.getElementById("id_clie").innerHTML;
 	var fecha 		= document.getElementById("fecha").innerHTML;
-	var liga	="moduls/reg_sol_analis.php";
-	var texto 	="nombre="+nombre+"&costo="+costo+"&id="+id+"&solis="+solicitud+"&ac=1&nomcl="+nombre_cli+"&idcl="+id_clie;
+	var doc 		= $("#doctor_shar").val();
+	var liga		="moduls/reg_sol_analis.php";
+	var texto 		="nombre="+nombre+"&costo="+costo+"&id="+id+"&solis="+solicitud+"&doc="+doc+"&ac=1&nomcl="+nombre_cli+"&idcl="+id_clie;
 	$.post(liga,texto,function(data){
 			if(data==solicitud){
 				var ls ="includes/list_analisisProceso.php";
@@ -495,6 +551,7 @@ function Registro22(analisis){
    					}
 			});
 }
+//fin de registro
 function eliminaSolicitud(datos){
 	var serie = datos.split(",");
 	var id_analis = serie[0];
@@ -530,7 +587,6 @@ function desconta2(){
 			alert(data);
 		}
 	});
-	
 }
 
 function cortesia1(){
@@ -603,10 +659,11 @@ function regis(){
 	var nombre_cli  = document.getElementById("nom_clie").innerHTML;
 	var id_clie 	= document.getElementById("id_clie").innerHTML;
 	var fecha 		= document.getElementById("fecha").innerHTML;
+	var furs		= $("#fur").val();
 	var doc 		= $("#doctor_shar").val();
 	var cos_total	= $("#total_s").val();
 	var cobr_total 	= $("#cobro_s").val();
-	var datos="fl="+solicitud+"&nc="+nombre_cli+"&icl="+id_clie+"&fc="+fecha+"&dc="+doc+"&cstal="+cos_total+"&cbtal="+cobr_total;
+	var datos="fl="+solicitud+"&nc="+nombre_cli+"&icl="+id_clie+"&fur="+furs+"&fc="+fecha+"&dc="+doc+"&cstal="+cos_total+"&cbtal="+cobr_total;
 	var liga="moduls/registroTotalSolis.php"
 	$.post(liga,datos,function(resp){
 		if(resp=="Exito"){
@@ -632,7 +689,7 @@ function dellanalis(){
 	});
 
 }
-
+//proceso de resultados de analissi
 $(document).on("ready",oculta2)
 function oculta2(){
 	$("#proceso_de_registro").css("display","none")
@@ -655,7 +712,19 @@ function procesanalisis(id,nombre){
 		visibiliti2();
 	});
 }
-
+//////////////////////////////////////////////////////
+///		tabla de lista de solicitudes
+///		
+/////////////////////////////////////////////////////
+function altasolis(dato){
+	var liga="moduls/eliminar.php";
+	var text="fl="+dato+"&op=3";
+	$.post(liga,text,function(data){
+		if (data=="exito") {
+		document.location.href="index.php";
+		}
+	});
+}
 
 
   </script>

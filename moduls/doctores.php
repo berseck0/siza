@@ -91,19 +91,11 @@ De:
 
 	<article class="main">
 <div id="lista">
-
 <div id="fordd">
 <table id="solis" width="99%">
 	<thead>
 <th>id</th><th>nombre</th><th>dependencia</th><th>horario</th><th>eliminar</th><th>ver</th>
 	</thead>
-	<tr><td>id</td>
-		<td>nombre</td>
-		<td>dependencia</td>
-		<td>horario</td>
-		<td>eliminar</td>
-		<td>ver</td>
-	</tr>
 	<tr>
 		<?php
 	include_once 'includes/inset.php';
@@ -120,23 +112,19 @@ De:
 		$h_fin=$ro['h_a'];
 		$idem=$ro['idemp'];
 		$horario=$h_in."~".$h_fin;
-	
 ?> <tr>
 	<td><?=$id?></td>
 	<td><?=$nombre?></td>
 	<td><?=$puesto?></td>
 	<td><?=$horario?></td>
-	<td>X</td>
-	<td>L</td>
+	<td onClick="eliminadoc(<?=$id?>)"><span class="icon">Â</span></td>
+	<td><span class="icon">z</span></td>
 </tr>
-	<?php	
+	<?php
 		}
-	
 ?>
 	</tr>
 </table>
 </div>
 </div>
 </article>
-
-	

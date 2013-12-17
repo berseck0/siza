@@ -38,8 +38,7 @@ CP.79000 Cd. Valles, S.L.P.
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select historial.nombre_cl,historial.doctor,historial.atendio,historial.procedencia,historial.fecha,historial.titulo,historial.total,historial.pago,historial.edad,historial.fur,
-clientes.direccion, clientes.telefono from clientes, historial where (historial.folio='$fol') and (clientes.id_cli='$idcl');"; 
+$hi="select historial.*,c.direccion,c.telefono,c.nombre,c.titulo,c.tiempo,c.edad,c.empresa,c.direccion,f.anticipo,f.total,f.id_doc,f.atendio from clientes c, historial, factura f where (historial.idfactura='$fol') and (c.id_cli='$idcl') and(f.id_factura='$fol');";
 $hist=pg_query($conn, $hi);
 
 if(!$hist) {
@@ -47,45 +46,42 @@ echo $hi;
 	}
 	if (pg_num_rows($hist) > 0) {
 		while ($ro = pg_fetch_assoc($hist)) {
-	$nomb=$ro['nombre_cl'];
-	$doctor=$ro['doctor'];
+	$nomb=$ro['nombre'];
+	$doctor=$ro['id_doc'];
 	$fecha=$ro['fecha'];
 	$titulo=$ro['titulo'];
-	$total=$ro['cobro'];
+	$total=$ro['total'];
 	$subtotal=$ro['total'];
-	$procede=$ro['procedencia'];
+	$procede=$ro['empresa'];
 	//$folio=$ro['folio'];
 	$fur=$ro['fur'];
 	$edad=$ro['edad'];
-	$pag=$ro['pago'];
+	$tiemp=$ro['tiempo'];
+	$pag=$ro['anticipo'];
 	$dire=$ro['direccion'];
 	$tel=$ro['telefono'];
 	$aten=$ro['atendio'];
 	$pag=Round($pag,2);
 	$subtotal=Round($subtotal,2);
-	
 }
 }else {
 echo $hi;	
-	}?>  
+	}?>
 
    <table border="0" style="position:relative;left:0px;width: 100%;top:-25;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;" >
 <tr><td></td> <td><strong>NOTA DE VENTA </strong></td><td></td><td></td></tr>
 <tr>
-<td><strong>NOMBRE DEL PACIENTE:</strong>&nbsp;&nbsp;<?php echo "$titulo"." "."$nomb"; ?>&nbsp;&nbsp;&nbsp;&nbsp;</td><td></td><td><strong>EDAD:</strong>&nbsp;&nbsp;<?echo $edad;?>&nbsp;</td><td> <strong>FECHA Y HORA:</strong>&nbsp;<?php echo $fecha; echo"&nbsp;"; echo date("G:H:s");?></td>
-
+<td><strong>NOMBRE DEL PACIENTE:</strong><?php echo "$titulo"." "."$nomb"; ?></td><td><strong>EDAD:&nbsp;</strong><?echo $edad.' '.$tiemp;?></td><td> <strong>FECHA Y HORA:</strong>&nbsp;<?php echo $fecha; echo"||"; echo date("G:H");?></td>
 </tr>
-<tr><td><strong>DOCTOR:</strong>&nbsp;&nbsp;<?php echo $doctor;?></td><td></td><td></td><td><strong>TEL.:</strong>&nbsp;&nbsp;<?php echo $tel;?></td>
+<tr><td><strong>DOCTOR(A):</strong>&nbsp;&nbsp;<?php echo $doctor;?></td><td></td><td><strong>TEL.:</strong>&nbsp;&nbsp;<?php echo $tel;?></td>
 </tr>
-
 <tr>
-<td><strong>DOMICILIO:</strong>&nbsp;&nbsp;<?php echo $dire;?></td><td></td><td></td><td><?php if($titulo=="Sra."||$titulo=="Srita."){ echo '<strong>FUR:</strong>&nbsp;&nbsp;'.$fur.'';  }?></td>
+<td><strong>DOMICILIO:</strong>&nbsp;&nbsp;<?php echo $dire;?></td><td></td><td><?php if($titulo=="Sra."||$titulo=="Srita."){ echo '<strong>FUR:</strong>&nbsp;&nbsp;'.$fur.'';  }?></td>
 </tr>
 
-<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td></td><td></td><td><strong>FOLIO:</strong>&nbsp;&nbsp;<?php echo $fol;?></td></tr> 
-
+<tr><td><strong>PROCEDENCIA:</strong>&nbsp;&nbsp;<?php echo $procede;?></td><td><strong>FOLIO:</strong><?php echo $fol;?></td><td><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></td></tr> 
 </table>
- <div style="position:relative;left:595px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"><strong>ATENDIO:</strong>&nbsp;<?php echo $aten;?></div>
+<!--<div style="position:relative;left:535px;top:-16;font-family: Arial, Helvetica, sans-serif;font-size: 8pt;"></div>-->
 
     <br>
     <table border="1" style="position:relative;left:0px;top:-10;width: 100%; text-align: left;font-size: 8pt;" >
@@ -95,13 +91,12 @@ echo $hi;
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            TOTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        </td>
-        
     </table> <br> 
     <?php
 $idcl=$_GET['idcl'];
 $fol=$_GET['fol'];
 include 'login.php';
-$hi="select nombre_anal , precio from rel_analisis where folio='$fol';"; 
+$hi="select n.nombre_anal,d.costo,d.cortesia from rel_analisis n join descuentos d on n.id_anal=d.id_analisis where n.folio='$fol' and d.id_factura='$fol';";
 $hist= pg_query($conn, $hi);
 
 if(!$hist) {
@@ -111,7 +106,8 @@ echo $hi;
 		echo '<table border="0" style="position:relative;left:10px;top: 5;width: 100%; text-align: left;font-size: 8pt;">';
 		while ($ro = pg_fetch_assoc($hist)) {
 	$analis=$ro['nombre_anal'];
-	$pre=$ro['precio'];
+	$pre=$ro['costo'];
+	$cort=$ro['cortesia'];
 	$pre=Round($pre,2);
 	$subtotal=Round($subtotal,2);
 	$total=Round($total,2);
@@ -119,8 +115,11 @@ echo $hi;
 	$top=Round($top,2);
 	$res=$total-$pag;
 	$res=Round($res,2);
-	
-	echo"<tr><td WIDTH=370>".$analis."</td>";
+	if($cort==1){
+	echo"<tr><td WIDTH=370>*".$analis."</td>";
+	}else{
+		echo"<tr><td WIDTH=370>".$analis."</td>";
+	}
 	echo"<td WIDTH=70>$&nbsp;&nbsp;".$pre."</td></tr>";
 	
 	}
@@ -139,7 +138,7 @@ echo $hi;
 ?>
 	<table border="0"style="position:absolute;left: 510px;top: 250;width: 100%; text-align: left;font-size: 8pt;">
 	<?php
-	echo "<tr><td></td><td>&nbsp;</td><td>$".$subtotal=Round($subtotal,2)."</td></tr>";
+	echo "<tr><td></td><td>&nbsp;</td><td></td></tr>";//".$subtotal=Round($subtostal,2)."
 	echo "<tr><td><br></td><td><br></td><td><br></td></tr>
 	<tr><td><br></td><td><br></td><td><br></td></tr>";
 	if($top=='0'){
@@ -151,7 +150,6 @@ echo $hi;
 	   echo "<tr><td>ANTICIPO:</td><td>$&nbsp;</td><td>".$pag=Round($pag,2)."</td></tr>";
 	   if($res<=-1) {
  echo "<tr><td>CAMBIO:</td><td>$&nbsp;</td><td>".$cam=Round($cam=($res *-1),2)."</td></tr>";
-	 	   	
 	   	}else {
 	   echo "<tr><td>RESTAN:</td><td>$&nbsp;</td><td>".$res=Round($res,2)."</td></tr>";
 	}
@@ -161,7 +159,7 @@ echo $hi;
     <div style="position:relative;left:0px;top: 100;width: 100%; text-align: left;font-size: 8pt;">
     <table  >
     <tr>
-    <td width="250">*PAGO HECHO EN UNA SOLA EXHIBICION*</td>
+    <td width="250">* ESTUDIOS DE  CORTESIA</td>
     <td width="450">NOTA: SU FACTURA SE EXTIENDE EN EL MES EN QUE SE REALIZA SU ESTUDIO.</td>
     
     </tr>

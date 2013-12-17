@@ -76,3 +76,12 @@ nav li:active .icon{
     transform:scale(1.1);
      -webkit-transform:scale(1.1);
 }
+/*-------lista de doctores*/
+#solis td .icon{
+		font-size:1.8em;
+		color: green;
+}
+#solis td .icon:hover{
+	cursor:pointer;
+}
+
