@@ -1,0 +1,1189 @@
+/*---------fin regcliente--- inicio de fontface---------------------------------*/
+@font-face {
+font-family: 'berseckfont';
+src: url('myfont-webfont.eot#') format('eot'),
+url('myfont-webfont.woff') format('woff'),
+url('myfont-webfont.ttf') format('truetype'),
+url('myfont-webfont.svg#svgFontName') format('svg');
+}
+
+
+
+/*---------------fin fontface-----------------------------------*/
+* { margin: 0; padding: 0; }
+body{
+	background:#D7D7D7;/*#2E87D3;*/
+	color:#EDEDED;
+	font-size: 15px;
+	font-family: arial;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 100%
+}
+footer{
+	background:#567792;
+	border:1px dotted #567792;
+	bottom:0;
+	clear:both;
+	float:bottom;
+	font-size:0.8em;
+	text-align:center;
+	margin:0px;
+	padding:0.5em 0 1.2em 0;
+	height:40%;	
+}
+footer span{
+	color: red;
+}
+header{
+	background:#236EAF;
+	margin: 0;
+	padding: 0;
+	height: 10%;
+	width: 100%;
+}
+hgroup{
+	background:#0E3F6A;
+	background-size:160px,100px 100px;
+	text-align:left;
+	padding:0.5em 0em 0.5em 3.5em;
+		}
+hgroup h1{
+	font-size:2.5em;
+	font-weight: normal;
+	margin:0;
+	padding:0 0 0 0.3em;
+	text-shadow:5px 3px 2px rgba(200,200, 200, 0.9);
+}
+hgroup span{
+	font-size:1.5em;
+	text-shadow:3px 7px 3px rgba(158, 190, 200, 0.5);
+}
+h2{
+	margin:0 0 0.3em 0 ;
+	font-size: 3.5em;
+	color: #ffffff;
+	font-weight: normal;
+	text-shadow:1px 3px 1px #849cb2;
+}
+h3 {
+	border-bottom: 1px dotted #ffffff;
+	color: #ffffff;
+	font-size: 1.5em;
+	font-weight: normal;
+	padding:0;
+	margin: 0 auto;
+	margin-bottom:0.8em;
+	width:55%;
+}
+p { margin: 0px; padding: 0px; text-align: justify; }
+img {
+	 margin: 0px;
+	 padding: 0px;
+	 border: none;
+	 }
+
+a{
+	text-decoration: none;
+	color: #666;
+}
+nav{
+	display: inline-block;
+	color:#fff;
+	text-align: left;
+	padding:0.4em;
+	margin: 0 0 0 0.5em;
+	height: 2.2em;
+}
+nav li{
+		   border: 1px solid #DDD;
+		   border-radius: 3px;
+		   display: inline-block; vertical-align: top;
+		   text-shadow: 0 1px 1px white;
+		   transition:all 0.2s ease;
+		   -webkit-box-shadow: 0 1px 1px #fff;
+		   -moz-box-shadow:    0 1px 1px #fff;
+		   box-shadow:         0 1px 1px #fff;
+		   font: bold 1em Sans-Serif;
+		   padding: 6px 10px;
+		   white-space: nowrap;
+		   vertical-align: middle;
+		   color: #666;
+		   background: rgba(255, 255, 255 , 0.3);
+		   cursor: pointer;
+		   list-style: none;
+		}
+nav li:hover, nav li:focus {
+		   border-color: #999;
+		   background: -webkit-linear-gradient(top, white, #E0E0E0);
+		   background:    -moz-linear-gradient(top, white, #E0E0E0);
+		   background:     -ms-linear-gradient(top, white, #E0E0E0);
+		   background:      -o-linear-gradient(top, white, #E0E0E0);
+		   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
+		   -moz-box-shadow:    0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
+		   box-shadow:         0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px #fff;
+		   border-bottom: 2px solid red;
+		}
+.m_i_1{
+	border-bottom: 2px solid green;
+}
+.m_i_5{
+	background-color: rgba(71, 163, 45,0.9);
+}
+nav li:active {
+		   border: 1px solid #AAA;
+		   border-bottom-color: #CCC;
+		   border-top-color: #999;
+		   -webkit-box-shadow: inset 0 1px 2px #aaa;
+		   -moz-box-shadow:    inset 0 1px 2px #aaa;
+		   box-shadow:         inset 0 1px 2px #aaa;
+		   background: -webkit-linear-gradient(top, #E6E6E6, gainsboro);
+		   background:    -moz-linear-gradient(top, #E6E6E6, gainsboro);
+		   background:     -ms-linear-gradient(top, #E6E6E6, gainsboro);
+		   background:      -o-linear-gradient(top, #E6E6E6, gainsboro);
+		   border-bottom: 2px solid blue;
+		}
+nav li:after {
+		   content: "";
+		   display: inline-block;
+		   width: 0;
+		   height: 0;
+		   border-top: 4px solid #999;
+		   border-left: 4px solid transparent;
+		   border-right: 4px solid transparent;
+		   margin: 0 0 0 4px;
+		   position: relative;
+		   top: -1px;
+		}
+nav li:hover:after {
+		   border-top-color: rgba(35, 110, 175, 1);
+		}
+
+
+/*
+nav{
+	display: inline-block;
+	color:#fff;
+	text-align: left;
+	margin: 0;
+	height: 2.2em;
+}
+nav li{
+	display: inline;
+}
+nav li a{
+	background-color:#236EAF; 
+	color: #fff;
+   	font-size:1.5em;  
+   	text-decoration: none;  
+   	transition:all 0.2s linear;
+	padding:0.2em; 
+}
+nav li a:hover{
+	background:#2586d7;
+	margin-top:-1em;
+	padding-bottom:-3px;
+	border-bottom:1px dotted #fff;
+	color:#fff;
+}
+*/
+
+
+input[type='text']{
+	border-radius: 5px;
+	background-color: #F9F7F7;
+}
+input[type='text']:focus,input[type='date']:focus,input[type='number']:focus,input[type='email']:focus{
+	/*border:2px solid rgba(0,234,70,0.6);*/
+	box-shadow:0px 0px 3px 2px rgba(0,234,70,0.6);
+}
+input[type='text']:hover{
+	border:2px solid rgba(255,102,0,0.4);
+}
+input:invalid {
+	box-shadow: 0px 0px 0px 1px red;
+}
+input:required{
+	border: 1px solid red;
+	box-shadow: 0px 0px 0px 1px red;
+}
+label{
+	text-shadow:1px 2px 0.2em #383737,1px 2px 0.2em #383737,1px 2px 0.2em #383737;
+}
+
+
+.erro{
+	border: 2px solid #FF2E00;
+	border-radius: 5px;
+	display: none;
+	margin: 0.4em;
+	transition:all 0.2s linear;
+	width: 55%;
+}
+#SubMenus{
+	background:#105590;
+	width:20%;
+}/**
+#section{
+	width:80%;
+}*/
+#SubMenus{
+	display: inline-block;
+	font-size: 1em;
+	height:68em;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+#datetime{
+	background-color: gray;
+	border-radius: 15px 1px 15px 1px;
+	display: inline-block;
+	margin-left: 2em;
+	padding: 0.5em 0em 0.5em 3em;
+	position: relative;
+	height: 1.5em;
+	top: -1em;
+	vertical-align: top;
+	width: 20%;
+}
+#datetime span,#datetime label{
+	color: #ffae00;
+	display: inline-block;
+	margin: 0 auto;
+}
+#browser{
+	font-size: 1em;
+	margin-left:1%; 
+	display: inline-block; 
+	text-align: left;
+}
+#section{
+	border: 0em solid #FFF;
+	background-color: #D7D7D7;
+	display: inline-block;
+	float: left;
+	margin:0.2em 0 0 0;
+	padding:0em;
+	vertical-align: top;
+	width:80%;
+	/*overflow: hidden;--------------------------------------------------------------------------aasasas----------*/
+}
+#section p{
+	color:#000;
+	padding:0.8em;
+	text-align:justify;
+	font-size:1.2em;
+}
+#logo{
+	background: url("../images/LOGOS/nuevo-9.png") no-repeat center ;
+	background-size: 90% 90%;
+	border:0.1em solid #6FA1D4;
+	border-radius: 1em	;
+	box-shadow: 0px 0px 3px 2px #7BCEFF;
+	display:inline-block;
+	float:right;
+	margin: 0 5em 0 0;
+	padding: 2em 0.1em 2.8em 0.1em;
+	vertical-align: top;
+	width:12%;	
+}
+/*termina css general---------------------------------------------------------*/
+/*-----------------------------ligas y boton-------------------------------------------------------------------*/
+
+#regis{
+	margin:4px;
+	width:98%;
+}
+#regis form:last-child{
+	background-color: #0D6E9B;
+	border:solid 5px #248C51;
+	border-radius: 5px;
+}
+.perf{
+	background-color: #0D6E9B;
+	margin:0em;
+	padding:0.2em;
+}
+#btn_p{
+	background:#404040;
+	border:1px solid #2D2D2D;
+	color:#fff;
+	padding:0.2em;
+	border-radius:0.2em;
+	margin:0.1em;
+}
+input[type='button'],input[type='submit']{
+    background: -moz-linear-gradient(center top , #00ADEE, #0078A5) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00adee), color-stop(100%,#0078a5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #00adee 0%,#0078a5 100%); 
+	background: -ms-linear-gradient(top, #00adee 0%,#0078a5 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #00adee 0%,#0078a5 100%);
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.2);
+    color: #D9EEF7;
+    cursor:pointer;
+    font-family: Optima,Arial,sans-serif;
+    font-size: 14px;
+    transition:all 0.2s linear;
+    height: 2em;
+    margin:1em;
+    padding: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    width: 6.5em;
+    border: solid 1px #ccc;
+	-moz-border-radius: 6px;
+  	-webkit-border-radius: 6px;
+}
+input[type='button']:hover,input[type='submit']:hover {
+    background: -moz-linear-gradient(center top , #0095CC, #00678E) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0095cc), color-stop(100%,#00678e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #0095cc 0%,#00678e 100%);
+   	opacity: 1;
+   	transform:scale(1.1);
+   	 -webkit-transform:scale(1.1);
+}
+input[type='button']:active,input[type='submit']:active {
+    color: #80BED6;
+    background-position: 0px;
+}
+
+/*----------------------------fin de botones----------------------------------------------*/
+/*---------------------------------------formulario de regsitro------------------------*/
+ form {
+	margin: 0px;
+	padding: 0px;
+}
+ form a{
+	color:#fff;
+	font-size:0.9em;
+	text-decoration:none;
+}
+#message {
+	background:#FFFFFF none repeat fixed 0 0;
+	border-radius:0.4em solid #BBBBBB;
+	display:inline-block;
+	height: 7em;
+	margin:1em 0 0.1em 0;
+	padding:0.1em;
+	width: 60%;
+}
+#inicio{
+	border: 0.1em dashed #c0c0c0;
+	border-radius:5px;
+	border-spacing:0.2em;
+	font-size:1em;
+	padding:0.5em 1em 0.2em 0.5em;
+	text-align:left;
+	margin:0.5em;
+}
+#inicio label{
+	display:block;
+	text-shadow:1px 2px 0.2em #383737,1px 2px 0.2em #383737,1px 2px 0.2em #383737;
+	font-weight:normal;
+	font-size: 1.2em;
+	float:left;
+	margin: 0em;
+	width:35%;
+}
+#inicio .la{
+	width:15% ;
+	float: none;
+	display: inline-block;
+}
+#inicio label a{
+	text-decoration:none;
+	color:#fff;
+	margin-left:0.5em;
+}
+#inicio label a span{
+	background: -moz-linear-gradient(0% 100% 90deg, #1A1A1A, #353535 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from(#353535), to(#1A1A1A));  
+	border: solid 0.2em #fff;
+	color: #fff;
+	display:none;
+	padding:0.2em;
+	position:absolute;
+	height:auto;
+	top: auto;
+	left: auto;
+	margin:-2em auto auto 10%;
+	text-align:center;
+	width: 35%;
+    box-shadow:0px 0px .5em #353535;
+	border-radius: 5px;
+	opacity: .85;
+    -moz-box-shadow:0px 0px .5em #353535;
+    -webkit-box-shadow:0px 0px .5em #353535;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+#inicio label a:hover span{
+	display:block;
+}
+#inicio input{
+ padding:0.2em;
+ border: solid 1px #ccc;
+ border-radius: 4px;
+ /*background-color: #5B7B8D;
+ opacity: 0.5;*/
+
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+ 
+#inicio input[type='text']:hover, #inicio input[type='text']:focus,
+#inicio input[type='password']:hover, #inicio input[type='password']:focus
+{ 
+    box-shadow:0px 0px .5em #005451;
+	border:solid 1px #005451;
+	color:#339aff;
+	padding: 0.2em !important;
+	-moz-box-shadow:0px 0px .5em #339aff;
+    -webkit-box-shadow:0px 0px .5em #339aff;
+}
+/*area de submenu derecha--------------------------------------------------------------------------------*/
+.seccion {
+	padding-bottom: 2em;
+	border-bottom: 0.1em dotted #22260a;
+	margin: 0 0 1em 0;
+	transition:all 1s ease;
+}
+.seccion h3{
+	width: 80%;
+}
+.seccion form label{
+	font-size: 1.2em;
+}
+.seccion p{
+	margin: 0.2em 0 0.2em 0;
+	font-size: 1em;
+	text-align: center;
+}
+.title a {
+	color: #ffffff;
+	font-size: 16px;
+	text-decoration: underline;
+}
+.box {
+	margin-bottom: 1em;
+}
+.inputfield {
+	height: 1.3em;
+	width: 50%;
+	padding: 2px 5px;
+	margin: 0 0 0 0;
+	font-size: 16px;
+	font-variant: normal;
+	line-height: normal;
+}
+
+#regis img{
+	border-radius: 10px;
+	max-width:80%;
+	min-width: 40%;
+	height:auto;
+}
+#img2{
+	float:right;
+	margin: 0em 4em 0em 0em;
+	width: 22%;
+	border:0px dotted #E5E5E5;
+}
+.seccion img{
+	max-width:60%;
+	min-width: 35%;
+	margin:-5px 0px 5px 0px;
+	border-radius: 10px;
+	transition: width 1s, height 1s, transform 1s linear;
+}
+.casilla{
+	width:75%;
+	overflow:hidden;
+}
+.seccion img:hover{
+	transform : scale(1.1);
+}
+/*---------------------------fin-------------------------------------------------------------------*/
+/*-------------------tabla de solicitudes--------------------------*/
+#solis {
+	border:0px solid #fff;
+	margin:0 0 0 0.5em;
+	font-size:1em;
+}
+
+#solis table {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1em;
+    font-style: normal;
+    border-collapse:separate;
+}
+#solis thead th{
+    border:3px solid #004B64;
+    border-bottom:6px solid #005BFF;
+    padding:0.8em;
+    color:#fff;
+    margin-bottom:0em;
+    text-shadow:1px 1px 15px #404040;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    border-radius:5px 0px 10px 0px;
+}
+#solis thead th:empty{
+    background:transparent;
+    border:none;
+}
+#solis .nom{
+	color:#009641;
+}
+#solis tbody td{
+	padding:8px;
+	border-right:2px dotted #4D7089; 
+}
+#solis tbody tr:nth-child(odd){background-color: #B3D8F9;}
+/**---------------------color en la tabla con odd y even----*/
+#solis tbody tr{
+    padding:3px;
+    text-align:center;
+    background:#EAF8FC;
+    border: 1px solid #5A5D57;
+    font-size:1.2em;
+    color:black;
+    text-shadow:1px 1px 1px #A0A0A0;
+}
+#solis tbody tr:hover{
+	background:#BFBFBF;
+	color:red;
+	border-top:5px;
+}
+
+.fol1 A:link {color: black; font-size: 1em; font-family: arial; text-decoration: none }
+.fol1 A:hover {color: #6D7462; font-size: 1em; font-family: arial; text-decoration: none }
+.fol1 A:visited {color: black; font-size: 1em; font-family: arial; text-decoration: none }
+
+.fol1:hover{
+	cursor:pointer;
+}
+.fol1 span:hover{
+	border-bottom:2px dotted #FFA500;
+	color:red;
+}
+/*-------------------tabla de solicitudes-  fin-------------------------*/
+
+/*------clientes-----------------------------------*/
+hr{
+ border:0.1em solid #b7b7b7;
+ margin:0;
+ padding:0;
+ width:99%;
+}
+.busquedaCliente {
+	border:3px solid #22527A;
+	background:#2568A1;
+	border-radius:5px;
+	padding: 0.2em;
+	margin: 0.1em;
+}
+.busquedaCliente label{
+  	font-size: 1.7em;
+  	margin: 0em;
+}
+.bus_clie{
+ 		left:0;
+		position: relative;
+		margin:0;
+		padding: 0;
+		width: 90%;
+}
+.bus_clie span{
+	border: 2px solid #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 0.5em #868686 inset;
+	cursor: pointer;
+	display:none;
+	font-size: 1em;
+	text-align: center;
+	margin: -0.2em 0 0.1em 0;
+	position: relative;
+	padding: 0.2em;
+	left: 4em;
+	width: 20%;
+}
+.bus_clie_ip{
+		border-radius: 5px;
+		width: 51%;
+		margin: 1em 0 0 0;
+	}
+.listado{
+		margin: 0 auto;
+		left: 30%;
+		width: 51%;
+		top:40px;
+	}
+.listado:nth-child(odd){ background-color: #74A578;}
+.listado li,.lista2 li {
+		background:#fff;
+		border-radius: 3px;
+		border-bottom: 2px dotted #659CD8;
+		color: black;
+		cursor: pointer;
+		margin: 0;
+		padding: 3px;
+		transition: ease 1s;
+}
+.listado li:hover,.lista2 li:hover {
+		background-color: #659CD8;
+		color: #fff;
+}
+.lista2:nth-child(odd){ background-color: #74A578;}
+.lista2,.listado{
+		margin-top: 0px;
+		list-style: none;
+		text-align: left;
+		position: absolute;
+		z-index: 10000;
+		-webkit-border-radius: 5px solid #7E99AA;
+		transition: ease 2s;
+}
+.lista2{
+	border-radius: 0px;
+	border:0px;
+	margin:0px 0px 0px 5.2em;
+	position:fixed;
+	padding:0px;
+	width: 29%;
+}
+.doctor_shar{
+	border:1px solid white;
+	border-radius: 5px;
+	background-color: #fff;
+	color:#606060;
+	text-align: left;
+	height: 20px;
+	left:0em;
+	position: relative;
+	top:0.5em;
+	margin:0 auto;
+	padding: 0px;
+	width: 45%;
+}
+.doctor_shar input{
+		border-radius: 0px;
+		width: 70%;
+		margin:0px;
+		padding:0px;
+		border:0px;
+		height: 20px;
+}
+.doctor_shar input:hover,.doctor_shar input:focus,.doctor_shar input:active{ 
+	border:none;
+	box-shadow:none;
+}	
+.doctor_shar label{
+	margin:0px 1.5em 0px 0px;
+	padding-left:5px;
+	padding-right: 1px;
+	/*background-color: #A1D9FC;
+	border:1px solid #A1D9FC;
+	border-radius: 5px 0 0px 5px;*/
+	border-right: 2px solid #606060;
+	height: 25px;
+}
+/*----------lista de analisis en grupos*/
+#bs_txt{
+	background-color: #EDEDED;
+	display:inline-block;
+	border:0px;
+	border-radius: 5px 5px 0px 0px;
+	margin:0 0 1em 0;
+	padding:1px 2px 1px 0px;
+	width:35%;
+
+}
+#bs_txt input[type='button']{
+	margin:0px 0px 0px 7px;
+	width:25%;
+
+}
+#bs_txt input[type='text']{
+	width:70%;
+	border:none;
+	margin-left: 4px;
+}
+#analisis form fieldset #bs_analis_ul{
+	background-color: #EDEDED;
+	color:#133563;
+	height:auto;
+	position:fixed;
+	transition:all 2s ease 0;
+	width:27%;
+}
+.bs_lis li{
+	border-bottom: 1px dotted black;
+	font-size: 15px;
+}
+.bs_lis li:hover{
+	cursor:pointer;
+	background-color: #DBC895;
+}
+
+/*-------proceso de registro de solicitud del cliente-------------------------------------------*/
+.datos_clie,.operaciones{
+		background:#2568A1;
+		border: 3px solid #427198;
+		border-radius:0.8em;
+		box-shadow:3px 1px 0.5em #22527A inset;
+		color:#fff;
+		display:inline-block;
+		text-align:center;
+		padding-top: 0.5em;
+		padding-bottom: 0.8em;
+		margin-top: 0.1em;
+		margin-bottom: 0.1em;
+		width:99%;
+}
+.textcaja{
+	background:#f2f2f2;
+	padding: 0.3em;
+	border-radius: 5px;
+	margin-top:0.5em;
+	box-shadow:1px 1px 0.3em rgba(196,196,196,0.2) inset;
+	/*box-shadow: 1px 1px 0.5em rgba(232,232,232,0.5) inset;*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.textcaja input[type="text"]{
+	border: 0px;
+	box-shadow: none;
+}
+.textcaja:focus{
+	border: 1px solid #009a34;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+#cliente h2{
+	width: 60%;
+	/*border-bottom: 2px dashed #35393D;*/
+	border-bottom: none;
+	padding: 0 0 0.1em 0;
+	margin: 0 auto;
+}
+.main h2{
+	border-bottom: 2px dashed #65B3F2;
+	color:#35393D;
+	padding: 0 0 0.1em 0;
+	margin: 0 0 0.2em 0;
+}
+.update{
+	display: none;
+	-webkit-transition:all 2s ease;
+	transition: display 3s linear 0s,
+}
+.fur{
+	display:none;
+	-webkit-transition:all 2s ease;
+	transition: display 3s ease 0s,
+}
+.datos_clie label,.operaciones label{
+	font-size:1em;
+	font-style:normal;
+	margin:0em 0.3em 0em 0em;
+	text-shadow:2px 3px 2px #585858;
+}
+.datos_clie .dato {
+	border-bottom: 2px dashed #F9F9F9;
+	color: #DDC6AD;
+	font-size: 1em;
+	margin: 0em;
+}
+.analisis_sol, .analisis_reg{
+	box-shadow:3px 1px 0.5em #22527A inset;
+	border:2px solid #22527A;
+	background:#2568A1;
+	border-radius:0.7em;
+	display:inline-block;
+	margin:0;
+	padding:0em;
+	height: 20em;
+	vertical-align:top;
+	width:49%;
+}
+.analisis_reg label p,.analisis_sol label p{
+	background:rgba(255,255,255,0.6);
+	color:rgba(255,255,255,0.5);	
+	font-size: 2em;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 0.5em;
+	margin-bottom: 0em;
+ 	width:93%;
+}
+/*-------------area de  toma de analisis*/	
+#solisitudListado table{
+ 	text-align: left;
+ 	font-size: 1em;
+ 	list-style: none;
+ 	margin: 0 1em 0 0;
+}
+#solisitudListado th{
+	color:#00BFFF;
+	text-align: center; 
+}
+#solisitudListado tr{
+	border-bottom: 2px dotted #659CD8;
+}
+.L_a_P label{
+	cursor: pointer;
+	text-shadow:normal;
+}
+.L_a_P:hover{
+	background-color:#E5E5E5;
+	color: #66A5FF;
+	text-shadow:0 0 0.2em #fff,0 0 0.2em #fff,0 0 0.2em #fff; 
+}
+/*---------datos de operaciones par cobro*/
+.operaciones{
+	margin-top: 0.1em;
+	display: inline-block;
+	height: 100%
+	z-index: 10;
+}	
+.cobro,.desypro{
+	border: 1px solid black;
+	display: inline-block;
+	height:100%;
+	margin: 0 auto;
+	padding: 0.5em 0 0.5em 0;
+	vertical-align: top;
+	z-index: 0; 
+	width: 48%
+}
+.cobro{
+	border-radius: 10px 0 0 10px;
+}
+.desypro{
+	border-radius: 0 10px 10px 0;
+}
+.cobro label,.desypro label{
+	font-size: 1.2em;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-align: left;
+}
+.cobro label p,.desypro label p{
+	background: rgba(64,64,64,0.9);
+	margin-bottom: 0em;
+}
+#dsd table{
+	font-size: 0.8em;
+	font-weight: normal;
+	text-align: left;
+}
+#dsd table td:first-child{
+	color: rgba(255,174,102,1);
+	text-shadow:1px 1px rgba(117,117,117,0.5);
+}
+#dsd tr{
+	border-top: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+}
+#dsd td{
+	border-right: 1px dashed #C9C9C9;
+	border-left: 1px dashed #C9C9C9;
+	padding-left: 0.6em;
+}
+
+
+
+/*---------------------------alta de datos del cliente fin-------------------------*/
+#for, #RegPrecios ,#analisis, #LisPrecios{
+	background:000;/*#2A6CAD;*/
+	border:3px solid #22527A;
+	border-radius:0.7em;
+    box-shadow:1px 1px 0.9em #EFEFEF inset;
+    margin:0.2em;
+    padding:0em;
+    transition:all 1s ease;
+    -webkit-border-radius:0.7em;
+}
+#analisis ul a{
+	text-decoration: none;
+	color: #fff;
+}
+#analisis ul a:hover li{
+  	background-color: rgba(127,180,250,0.5);
+  	color:#bc3a3e;
+}
+#analisis  a li{
+	border-top: 1px solid #fff;
+	transition:all 1s ease;
+}
+
+#for{
+	background-color:#7E8489;
+	padding: 0.8em;
+	margin: 0;
+}
+#for hr{
+	margin:0.1em;
+}
+#for2{
+	display: block; 
+}
+#RegPrecios table tr{
+	border-top: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+}
+#RegPrecios td{
+	border-right: 1px dashed #C9C9C9;
+	border-left: 1px dashed #C9C9C9;
+	padding-left: 0.6em;
+}
+#RegPrecios,#analisis,#LisPrecios{
+	background: #22527A;
+	box-shadow: 0px 0px 0.9em #353535 ;
+	margin-top:0.2em;
+	padding: 0.1em 0em 0.1em 0.1em;
+	width: 99%;
+}
+/**---------lista de analisis para registra valores de referencia*/
+#analisis ul{
+	font-size: 1.2em;
+	font-style: normal;
+	text-align: left;
+	list-style: none;
+	height: 35em;
+	overflow: hidden;
+	border-bottom: 0px solid gray;
+	transition:all 5s ease;
+}
+
+#analisis{
+	background-color: rgba(34, 82, 122,0.9);
+}
+#analisis ul:hover{
+	overflow: auto;
+	background-color: rgba(199,214,255,0.0);
+}
+.prelis{
+	padding: 1em 2em 0.5em 0em;
+	overflow: auto;
+}
+#LisPrecios{
+	display: none;
+}
+.lis table,.lis2 table{
+	width: 99%;
+	color: rgba(255,174,102,1);/*pone color a la lista de analisis registraos*/
+}
+.lis tr,.lis2 tr{
+	border-top: 2px solid #FFF;
+	border-bottom: 2px solid #FFF;
+}
+.lis td,.lis2 td{
+	border-right: 1px dashed #C9C9C9;
+	border-left: 1px dashed #C9C9C9;
+	padding-left: 0.6em;
+}
+.lis th,.lis2 th{
+	color:#00BFFF;
+	text-align: center;
+}
+.lis{
+	margin-left: 0.2em;
+	height: 16em;
+	text-align: left;
+	width: 100%;
+}
+.lis2{
+	font-size: 0.8em;
+	height: 16em;
+	margin-top: 0.2em;
+	text-align: left;
+	overflow: hidden;
+	width: 99%;
+}
+.lis2:hover{
+	overflow: auto;
+}
+.main{
+	/*border: 0.1em solid #FFD;*/
+	background-color:#D7D7D7;
+	text-align: center;
+	margin:0;
+	padding: 0;
+	width:100%;
+}
+
+.liga {
+	background: -moz-linear-gradient(0% 100% 90deg, #1A1A1A, #353535 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from(#353535), to(#1A1A1A));  
+	border: solid 0.2em #fff;
+	box-shadow:0px 0px .5em #353535;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	display:inline-block;
+	height:auto;
+	margin:0.1em auto auto 10%;
+	text-align:center;
+	text-decoration:none;
+	opacity: .85;
+	padding:0.1em;
+	vertical-align:top;
+	width: 200px;
+    -moz-box-shadow:0px 0px .5em #353535;
+    -webkit-box-shadow:0px 0px .5em #353535;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+	/*--------esta es lista de doctores---------------*/
+#lista{
+	display:none;
+	margin-top:1em;
+	overflow: auto;
+	height:35em;
+	}
+
+	/*---------------Registro de analisis---------------------*/
+
+#valore,#valores{
+	box-shadow: 2px 1px 0.2em #72BBCC ;
+	border-radius: 5px;
+	display: inline-block;
+	font-size:1em;
+	font-style:normal;
+	margin-bottom:5%;
+	padding:0 0em 0.5em 0em;
+	vertical-align: top;
+	width: 15%;
+	-webkit-border-radius: 5px;
+}
+#v{
+	display: none;
+}
+
+#valore {
+	margin:0 auto;
+	display: none;
+	padding: 0.5em;
+	width: 30%;
+}
+#valore,#valores legend{
+ 	color:c0c0c0;
+ 	text-shadow:1px 0px 1px #3F3F3F;
+ 	font-size:1.3em;
+	font-style:normal;
+}
+#valore textarea{
+	 width: 100%;
+	 margin: 0 auto;
+	 font-size: 0.7em;
+	 height: 10em;
+}
+.valores {
+	font-size:1em;
+	box-shadow: 2px 1px 0.2em #72BBCC inset;
+	border-radius: 5px;
+	color:#FFF;
+	margin:0.5%;
+	padding:0.9em 0 0.9em 0.8em;
+	text-align: left;
+	width: 97%;
+	-webkit-border-radius:5px;
+}
+#analisis form label{
+	width:16%;
+	display:inline-block;
+	margin-left: 1em;
+}
+
+/*------------------------fin del registro de naalisis*/
+/*-------------revisio de anlsis y solicitudes**/
+.main em{
+	color:#564F4F;
+	border-bottom: 1px dotted #564F4F;
+	font-size: 1.8em;
+}
+#procesarlis,.div_proceso {
+	border:3px solid #22527A;
+	background:#2568A1;
+	border-radius:5px;
+	padding:1em 1em 0.5em 1em;
+	margin: 0.5em 0.2em 0.3em 0.2em;
+	text-align: left;
+}
+.div_proceso{
+	display: none;
+}
+.div_proceso label{
+	vertical-align: text-top;
+	display: inline;
+	text-align: left;
+}
+#procesarlis span{
+	color: #AAAAAA;
+  	font-size: 1em;
+  	margin: 0.3em;
+  	border-bottom: 2px dotted #965757;
+}
+#procesarlis hr{
+	margin-top: 1em;
+}
+#procesarlis li{
+	border-bottom: 1px solid gray;
+	cursor: pointer;
+	list-style: none;
+	margin:0.2em 0em 0.2em 0em;
+	width: 50%;
+}
+.subanal{
+	margin-left: 1em;
+}
+.subanal:hover{
+	cursor:pointer;
+}
+.analResul{
+	border-top:1px solid #FFF;
+	width:70%;
+}
+.analResul label{
+	display:inline-block;
+	width:30%;
+}
+.analResul span{
+	margin-left:0.1em;
+}
+.analResul input[type='text']{
+	display:inline-block;
+}
+#vrfs{
+	width:14%;
+	display:inline-block;
+}
+/**-----------------historial del cliente ----------------------------------------*/
+#HDCL h2{
+	font-size: 1.7em;
+}
+#HDCL ul{
+	background-color: #3d3333;
+	padding:0em 0em 0.2em 0.2em;
+	list-style: none;
+	text-align: left;
+	margin:0 0 0 0.2em;
+	width: 20%;
+
+}
+#HDCL li{
+	border-bottom: 1px dotted #007fff;
+}
+#HDCL  li ul{
+	display: none;
+}
+#HDCL li:hover ul{
+	display: block;
+}

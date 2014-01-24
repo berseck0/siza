@@ -1,0 +1,63 @@
+<!-- FORMULA BLANCA   -->  
+ 
+    function Sumar(){  
+          interval = setInterval("calcular()",1);  
+    }  
+    function calcular(){  
+  leu = document.proceso.Text1.value;  
+ lin = document.proceso.Text2.value;   
+ mon = document.proceso.Text3.value; 
+  eos = document.proceso.Text4.value; 
+bas = document.proceso.Text5.value; 
+ seg = document.proceso.Text6.value; 
+  mie = document.proceso.Text7.value; 
+juv = document.proceso.Text8.value; 
+ en = document.proceso.Text9.value; 
+// if (leu =100){
+   //	 alert("error ")
+   	
+
+   //	}
+  
+
+var leu2 =(leu*1);
+ 
+  lin2 =(lin*1);
+   
+  mon2 =(mon*1) 
+  
+  eos2 =(eos*1) 
+    
+ bas2 =(bas*1) 
+  
+   seg2 =(seg*1)
+   
+    mie2 =(mie*1)
+ 
+    juv2 =(juv*1)
+
+    en2 =(en*1)
+  
+   
+  tr = (leu2)+ (lin2)+(mon2)+ (eos2)+(bas2)+ (seg2)+(mie2)+ (juv2)+(en2)
+   	
+   	
+   	if( tr >100  ){
+   		
+   		alert("error ")
+   		}
+     
+    }  
+    function NoSumar(){  
+          clearInterval(interval);  
+    }  
+    
+ 
+ 
+ 
+ document.getElementById("i1").value = jsVar;
+    	
+    	
+
+
+
