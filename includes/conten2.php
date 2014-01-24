@@ -25,19 +25,28 @@ switch($el){
 			include 'moduls/insertresultados.php';
 			break;
 	default:
-	if($el==0&& $cb==''){		
+	if($el==0&& $cb==''){
 	?>
 
 	<article class="main">
 
-<h2>Analisis a Procesar</h2>	
+<h2>Analisis a Procesar</h2>
 <br>
 
-	<?php 
+	<?php
 include 'inset.php';
 
-$uper="delete from rel_analisis where folio in(select distinct on(folio) folio from rel_analisis where folio not in(select folio from historial));";
+$uper="select distinct on(id_factura)id_factura from factura where id_factura not in(select idfactura from historial);";
 $super=pg_query($conn,$uper)or die("fallo query".$uper);
+	$dl=pg_fetch_assoc($super);
+    $ch=$dl['id_factura'];
+
+$el_fac="delete from factura where id_factura='$ch';";
+	$dell=pg_query($conn, $el_fac);
+$el_des="delete from descuentos where id_factura='$ch';";
+	$dll=pg_query($conn, $el_des);
+$el_anal="delete from rel_analisis where folio='$ch';";
+	$dl=pg_query($conn, $el_anal);
 
 $tabl="SELECT DISTINCT ON (folio) nombre_cli, id_cli, hora, estatus, folio FROM rel_analisis WHERE  folio in(select idfactura from historial) and estatus = 0 ORDER BY folio DESC, nombre_cli DESC, hora DESC, id_cli DESC;";
 $tabla=pg_query($conn, $tabl);
@@ -53,7 +62,7 @@ while ($p=pg_fetch_assoc($tabla)) {
 		$idcl=$p['id_cli'];
 		$folio=$p['folio'];
 		$hora=$p['hora'];
-		$nomcl=$p['nombre_cli'];	
+		$nomcl=$p['nombre_cli'];
 
 ?>
 	<tr>
@@ -70,7 +79,7 @@ while ($p=pg_fetch_assoc($tabla)) {
 if($el==0&& $cb!=''){
 	$idcl=$_GET['idcl'];
 //esto incluye la impresion pdf de cobro
-echo '<iframe src="pdf/pdf.php?k='.$k.'&fol='.$cb.'&idcl='.$idcl.'" style="width:950px; height:1010px;" frameborder="0"></iframe>';
+echo '<iframe src="pdf/pdf.php?k='.$k.'&fol='.$cb.'&idcl='.$idcl.'" style="width:950px; height:750px;" frameborder="0"></iframe>';
 }	
  echo "</article>";
 	

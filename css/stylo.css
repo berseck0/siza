@@ -12,10 +12,11 @@ url('myfont-webfont.svg#svgFontName') format('svg');
 /*---------------fin fontface-----------------------------------*/
 * { margin: 0; padding: 0; }
 body{
-	background:#D7D7D7;/*#2E87D3;*/
+	background:#CFE1F7;/*#D7D7D7;/*#2E87D3;*/
 	color:#EDEDED;
 	font-size: 15px;
 	font-family: arial;
+	height:100%;
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -31,7 +32,7 @@ footer{
 	text-align:center;
 	margin:0px;
 	padding:0.5em 0 1.2em 0;
-	height:40%;	
+	height:30%;	
 }
 footer span{
 	color: red;
@@ -55,6 +56,7 @@ hgroup h1{
 	margin:0;
 	padding:0 0 0 0.3em;
 	text-shadow:5px 3px 2px rgba(200,200, 200, 0.9);
+	width:30%;
 }
 hgroup span{
 	font-size:1.5em;
@@ -109,7 +111,7 @@ nav li{
 		   padding: 6px 10px;
 		   white-space: nowrap;
 		   vertical-align: middle;
-		   color: #666;
+		   color: #009605;
 		   background: rgba(255, 255, 255 , 0.3);
 		   cursor: pointer;
 		   list-style: none;
@@ -160,36 +162,6 @@ nav li:hover:after {
 		   border-top-color: rgba(35, 110, 175, 1);
 		}
 
-
-/*
-nav{
-	display: inline-block;
-	color:#fff;
-	text-align: left;
-	margin: 0;
-	height: 2.2em;
-}
-nav li{
-	display: inline;
-}
-nav li a{
-	background-color:#236EAF; 
-	color: #fff;
-   	font-size:1.5em;  
-   	text-decoration: none;  
-   	transition:all 0.2s linear;
-	padding:0.2em; 
-}
-nav li a:hover{
-	background:#2586d7;
-	margin-top:-1em;
-	padding-bottom:-3px;
-	border-bottom:1px dotted #fff;
-	color:#fff;
-}
-*/
-
-
 input[type='text']{
 	border-radius: 5px;
 	background-color: #F9F7F7;
@@ -221,20 +193,15 @@ label{
 	transition:all 0.2s linear;
 	width: 55%;
 }
-#SubMenus{
+#loggeo{
 	background:#105590;
-	width:20%;
-}/**
-#section{
-	width:80%;
-}*/
-#SubMenus{
 	display: inline-block;
 	font-size: 1em;
-	height:68em;
+	height:0 auto;
 	margin: 0;
 	padding: 0;
 	vertical-align: top;
+	width:30%;
 }
 #datetime{
 	background-color: gray;
@@ -259,15 +226,16 @@ label{
 	display: inline-block; 
 	text-align: left;
 }
+#contenedor{
+	background-color: #CFE1F7;
+}
 #section{
-	border: 0em solid #FFF;
-	background-color: #D7D7D7;
-	display: inline-block;
-	float: left;
-	margin:0.2em 0 0 0;
+	border:0px;
+	background-color: #CFE1F7;/*#D7D7D7;*/
+	margin:0.2em 0em 0em 0em;
+	height:auto;
 	padding:0em;
-	vertical-align: top;
-	width:80%;
+	width:100%;
 	/*overflow: hidden;--------------------------------------------------------------------------aasasas----------*/
 }
 #section p{
@@ -275,7 +243,7 @@ label{
 	padding:0.8em;
 	text-align:justify;
 	font-size:1.2em;
-}
+}/*
 #logo{
 	background: url("../images/LOGOS/nuevo-9.png") no-repeat center ;
 	background-size: 90% 90%;
@@ -288,6 +256,27 @@ label{
 	padding: 2em 0.1em 2.8em 0.1em;
 	vertical-align: top;
 	width:12%;	
+}
+*/
+.footdata,.footbox{
+	background-color: rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    box-shadow: 0 2px 20px 2px rgba(0, 0, 0, 0.31) inset;
+    display: inline-block;
+    float: none;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 12px;
+    vertical-align: top;
+    width: 540px;
+}
+
+.footdata{
+	height:20em;
+	text-align: center;
+}
+.footbox{
+	width:40%;
 }
 /*termina css general---------------------------------------------------------*/
 /*-----------------------------ligas y boton-------------------------------------------------------------------*/
@@ -328,7 +317,7 @@ input[type='button'],input[type='submit']{
     font-size: 14px;
     transition:all 0.2s linear;
     height: 2em;
-    margin:1em;
+    margin:0.7em;
     padding: 4px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     width: 6.5em;
@@ -444,22 +433,55 @@ input[type='button']:active,input[type='submit']:active {
     -webkit-box-shadow:0px 0px .5em #339aff;
 }
 /*area de submenu derecha--------------------------------------------------------------------------------*/
-.seccion {
-	padding-bottom: 2em;
-	border-bottom: 0.1em dotted #22260a;
-	margin: 0 0 1em 0;
-	transition:all 1s ease;
+#hgrp_data,#Loggeo{
+	display:inline-block;
+	width:49%;
+	vertical-align: top;
 }
-.seccion h3{
-	width: 80%;
+#Loggeo{
+	padding:0px;
+	margin-top: 3px;
+	text-align: right;
 }
-.seccion form label{
-	font-size: 1.2em;
-}
-.seccion p{
-	margin: 0.2em 0 0.2em 0;
-	font-size: 1em;
+#Loggeo h3{
+	display:inline-block;
 	text-align: center;
+	width: 30%;
+	vertical-align: top;
+}
+#Loggeo form{
+	display:inline-block;
+	font-size: 1em;
+	width:50%;
+	vertical-align:top;
+}
+.sec_izq{
+	display:inline-block;
+	text-align: center;
+	width:30%;
+	vertical-align: top;
+}
+#Loggeo .sec_izq h3{
+	width:80%;
+}
+#Loggeo .sec_der{
+	margin-top: -10px;
+	width:65%;
+	font-size: 1.1em;
+}
+#Loggeo .sec_der label{
+	border-right: 2px solid black;
+	padding-right: 5px;
+}
+#Loggeo img{
+	border-radius: 10px;
+	max-width:10%;
+	min-width: 5%;
+	margin-top:0px;
+	transition: width 1s, height 1s, transform 1s linear;
+}
+.sec_izq img:hover{
+	transform : scale(1.1);
 }
 .title a {
 	color: #ffffff;
@@ -472,7 +494,7 @@ input[type='button']:active,input[type='submit']:active {
 .inputfield {
 	height: 1.3em;
 	width: 50%;
-	padding: 2px 5px;
+	padding: 2px 5px 0px 0px;
 	margin: 0 0 0 0;
 	font-size: 16px;
 	font-variant: normal;
@@ -491,20 +513,11 @@ input[type='button']:active,input[type='submit']:active {
 	width: 22%;
 	border:0px dotted #E5E5E5;
 }
-.seccion img{
-	max-width:60%;
-	min-width: 35%;
-	margin:-5px 0px 5px 0px;
-	border-radius: 10px;
-	transition: width 1s, height 1s, transform 1s linear;
-}
+
+
 .casilla{
 	width:75%;
-	overflow:hidden;
-}
-.seccion img:hover{
-	transform : scale(1.1);
-}
+	overflow:hidden;}
 /*---------------------------fin-------------------------------------------------------------------*/
 /*-------------------tabla de solicitudes--------------------------*/
 #solis {
@@ -524,6 +537,7 @@ input[type='button']:active,input[type='submit']:active {
 #solis thead th{
     border:3px solid #004B64;
     border-bottom:6px solid #005BFF;
+    background-color: #73939B;
     padding:0.8em;
     color:#fff;
     margin-bottom:0em;
@@ -555,9 +569,9 @@ input[type='button']:active,input[type='submit']:active {
     text-shadow:1px 1px 1px #A0A0A0;
 }
 #solis tbody tr:hover{
-	background:#BFBFBF;
+	/*background:#BFBFBF;*/
 	color:red;
-	border-top:5px;
+	border-top:-5px;
 }
 
 .fol1 A:link {color: black; font-size: 1em; font-family: arial; text-decoration: none }
@@ -652,10 +666,21 @@ hr{
 	border-radius: 0px;
 	border:0px;
 	margin:0px 0px 0px 5.2em;
-	position:fixed;
+	position: absolute;
 	padding:0px;
-	width: 29%;
+	width: 79%;
+}/* prueba para poner una imagen
+.beeperNub {
+    background-image: url("/rsrc.php/v2/yp/r/gYM_lAjuif4.png");
+    background-position: -16px -348px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    height: 11px;
+    position: absolute;
+    top: -11px;
+    width: 20px;
 }
+*/
 .doctor_shar{
 	border:1px solid white;
 	border-radius: 5px;
@@ -693,7 +718,7 @@ hr{
 	height: 25px;
 }
 /*----------lista de analisis en grupos*/
-#bs_txt{
+#bs_txt,#bs_txt1{
 	background-color: #EDEDED;
 	display:inline-block;
 	border:0px;
@@ -701,7 +726,13 @@ hr{
 	margin:0 0 1em 0;
 	padding:1px 2px 1px 0px;
 	width:35%;
-
+}
+#bs_txt1{
+	width:27%;
+}
+#bs_txt1 input[type='text']{
+	border:none;
+	width:100%;
 }
 #bs_txt input[type='button']{
 	margin:0px 0px 0px 7px;
@@ -713,13 +744,16 @@ hr{
 	border:none;
 	margin-left: 4px;
 }
-#analisis form fieldset #bs_analis_ul{
+#analisis form fieldset #bs_analis_ul,#analisis form fieldset #bs_analis{
 	background-color: #EDEDED;
 	color:#133563;
 	height:auto;
 	position:fixed;
 	transition:all 2s ease 0;
 	width:27%;
+}
+#analisis form fieldset #bs_analis{
+	width:21%;
 }
 .bs_lis li{
 	border-bottom: 1px dotted black;
@@ -729,7 +763,6 @@ hr{
 	cursor:pointer;
 	background-color: #DBC895;
 }
-
 /*-------proceso de registro de solicitud del cliente-------------------------------------------*/
 .datos_clie,.operaciones{
 		background:#2568A1;
@@ -897,8 +930,6 @@ hr{
 	padding-left: 0.6em;
 }
 
-
-
 /*---------------------------alta de datos del cliente fin-------------------------*/
 #for, #RegPrecios ,#analisis, #LisPrecios{
 	background:000;/*#2A6CAD;*/
@@ -964,10 +995,21 @@ hr{
 
 #analisis{
 	background-color: rgba(34, 82, 122,0.9);
+	width:98.5%;
 }
 #analisis ul:hover{
 	overflow: auto;
 	background-color: rgba(199,214,255,0.0);
+}
+
+/* alta modificaciones*/
+#altestudio,#altpaquete{
+	background-color: #187C56;
+	border-radius: 10px;
+	display:inline-block;
+	padding:1em;
+	vertical-align: top;
+	cursor:pointer;
 }
 .prelis{
 	padding: 1em 2em 0.5em 0em;
@@ -1012,7 +1054,7 @@ hr{
 }
 .main{
 	/*border: 0.1em solid #FFD;*/
-	background-color:#D7D7D7;
+	/*background-color:#EAF1FF;*/
 	text-align: center;
 	margin:0;
 	padding: 0;

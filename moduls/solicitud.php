@@ -32,8 +32,8 @@ while ($r=pg_fetch_assoc($datos)) {
 <label>Fecha:</label><label class="dato" id="fecha"><? echo $date;?></label>
 <input type="hidden" value="<?echo $fur;?>" name="fur" id="fur">
 	<div  class="doctor_shar"><label>Doctor(a):</label>
-		<input type="text" id="doctor_shar" placeholder="Nombre del doctor(a)" autocomplete="off" onblur="flip(thisValue)">
-		<ul class="lista2" id="doc" style="display:none;"></ul></input>
+		<input type="text" id="doctor_shar" placeholder="Nombre del doctor(a)" autocomplete="off" onblur="flip(thisValue)" >
+		<ul class="lista2" id="doc" style="display:none;"></ul> </input>
 	</div>
 </div>
 
@@ -76,7 +76,8 @@ while ($r=pg_fetch_assoc($datos)) {
 <div class="desypro">
 	<label><p>descuentos y promocion<span class="icon">#</span></p></label>
 	<!-- inicio div de descuetos  -->
-<div id="dsd" >
+<div id="dsd">
+
 </div>
 <!-- inicio div de cortesias  -->
 
