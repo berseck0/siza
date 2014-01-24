@@ -93,7 +93,7 @@ if($_SESSIO['tipo']==1){
 		<td><?=$puesto?></td>
 		<td><?=$turno?></td>
 		<td onClick="emp_dell('<?=$id?>')"><span class="icon">Â</span></td>
-		<td><span class="icon">z</span></td>
+		<td><span class="icon" >z</span></td>
 	</tr>
 	<?php
 		}

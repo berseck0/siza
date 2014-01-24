@@ -258,11 +258,24 @@ function regis2(){
 					}
 					});
 	}
+////////////////////////////////////////////////////////
 //registro de los analisis y sus valores de ref
+//////////////////////////////////////////////////
 $(document).on("ready",reg_anal)
-function reg_anal(){
-	$("#RegAnal").on("click",registro)
-}
+		function reg_anal(){
+			$("#RegAnal").on("click",registro);
+			$("#altestudio").on("click",showreg);
+			$("#altpaquete").on("click",showpaq);
+		}
+		function showreg(){
+		 //var ruta="index.php";
+		 //var datos="d=1&p=2&ide=1";
+		 document.location.href="index.php?d=1&p=2&ide=1";
+		}
+		function showpaq(){
+		document.location.href="index.php?d=1&p=2&ide=2";
+		}
+
 function registro(){
 	var datos_analis = $("form").serialize();
 	var liga =	"includes/reg_analis.php";
@@ -297,6 +310,7 @@ function share(){
 	$("#buscar").on("keyup",buscaAnalisis)
 	$("#doctor_shar").on("keyup",buscadoc)
 	$("#bs_analisis").on("keyup",bus_ana)
+	$("#bs_analis1").on("keyup",bs_anali)
 }
 
 function sas(){
@@ -391,6 +405,31 @@ function fly(nombre){
 	var n=nombre.split(",");
 	$('#bs_analisis').val(n[1]);
 	setTimeout("$('#bs_analis_ul').hide();",200);
+}/////////////
+/////////
+function bs_anali(){
+	var buscar = $("#bs_analis1").val();
+	if(buscar.length<=0){
+		$("#bs_analis").hide();
+		$("#bs_analis").css("display","none");
+		}else{
+			var liga="includes/buscar.php";
+			var text="an="+buscar+"&l=5";
+			$.post(liga,text,function(data){
+				if(data.length>0){
+					$("#bs_analis").show();
+					$("#bs_analis").html(data);
+				}else{
+					$("#bs_analis").hide();
+					$("bs_analis").css("display","none");
+				}
+			});
+		}
+	}
+function NaFl(nom){
+	var n=nom.split(",");
+	$('#bs_analis1').val(n[1]);
+	setTimeout("$('#bs_analis').hide();",200);
 }
 $(document).on("ready",agr_lis)
 function agr_lis(){

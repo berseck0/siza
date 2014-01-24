@@ -46,6 +46,9 @@ if(pg_num_rows($selfac2)>0)
 	{}else{*/
 		$fac="insert into factura(id_factura,id_cli,id_doc,id_analisis)values('$folio','$id_cl','$doc','$id_analisis')";
 		$fact=pg_query($conn, $fac);
+		if(!$fact){
+			echo "error con la sintaxis 3";
+		}
 	//}
 }
 ?>
