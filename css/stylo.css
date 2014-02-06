@@ -30,9 +30,9 @@ footer{
 	float:bottom;
 	font-size:0.8em;
 	text-align:center;
-	margin:0px;
 	padding:0.5em 0 1.2em 0;
 	height:30%;	
+	margin:0 auto auto auto;
 }
 footer span{
 	color: red;
@@ -203,6 +203,7 @@ label{
 	vertical-align: top;
 	width:30%;
 }
+
 #datetime{
 	background-color: gray;
 	border-radius: 15px 1px 15px 1px;
@@ -232,10 +233,12 @@ label{
 #section{
 	border:0px;
 	background-color: #CFE1F7;/*#D7D7D7;*/
-	margin:0.2em 0em 0em 0em;
-	height:auto;
+	margin:0.2em 0em 1em 0em;
 	padding:0em;
 	width:100%;
+	min-height: 100%;     
+    height: auto !important; 
+    height: 100%;  
 	/*overflow: hidden;--------------------------------------------------------------------------aasasas----------*/
 }
 #section p{
@@ -373,13 +376,14 @@ input[type='button']:active,input[type='submit']:active {
 	font-weight:normal;
 	font-size: 1.2em;
 	float:left;
-	margin: 0em;
-	width:35%;
+	margin-left:3em;
+	width:25%;
 }
 #inicio .la{
-	width:15% ;
-	float: none;
 	display: inline-block;
+	float: none;
+	margin-left: 10px;
+	width:15% ;
 }
 #inicio label a{
 	text-decoration:none;
@@ -411,17 +415,23 @@ input[type='button']:active,input[type='submit']:active {
 #inicio label a:hover span{
 	display:block;
 }
-#inicio input{
- padding:0.2em;
- border: solid 1px #ccc;
- border-radius: 4px;
- /*background-color: #5B7B8D;
- opacity: 0.5;*/
-
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
+#inicio input[type="text"],
+#inicio input[type="email"],
+#inicio input[type="password"],
+#inicio input[type="number"],
+#inicio input[type="date"]{
+	 padding:0.2em;
+	 border: solid 1px #ccc;
+	 border-radius: 4px;
+	 /*background-color: #5B7B8D;
+	 opacity: 0.5;*/
+	 width: 25%;
+	 -moz-border-radius: 6px;
+	 -webkit-border-radius: 6px;
 }
- 
+#inicio input[type="button"]{
+	margin-left: 35em;
+}
 #inicio input[type='text']:hover, #inicio input[type='text']:focus,
 #inicio input[type='password']:hover, #inicio input[type='password']:focus
 { 
@@ -440,7 +450,7 @@ input[type='button']:active,input[type='submit']:active {
 }
 #Loggeo{
 	padding:0px;
-	margin-top: 3px;
+	margin-top: 0px;
 	text-align: right;
 }
 #Loggeo h3{
@@ -465,8 +475,9 @@ input[type='button']:active,input[type='submit']:active {
 	width:80%;
 }
 #Loggeo .sec_der{
-	margin-top: -10px;
-	width:65%;
+	margin-top: 0px;
+	padding: 5px 5px 0px 0px;
+	width:75%;
 	font-size: 1.1em;
 }
 #Loggeo .sec_der label{
@@ -475,10 +486,12 @@ input[type='button']:active,input[type='submit']:active {
 }
 #Loggeo img{
 	border-radius: 10px;
-	max-width:10%;
+	display: inline-block;
+	max-width:15%;
 	min-width: 5%;
-	margin-top:0px;
+	margin-top:3px;
 	transition: width 1s, height 1s, transform 1s linear;
+	vertical-align: top;
 }
 .sec_izq img:hover{
 	transform : scale(1.1);
@@ -633,7 +646,7 @@ hr{
 	}
 .listado{
 		margin: 0 auto;
-		left: 30%;
+		left: 29%;
 		width: 51%;
 		top:40px;
 	}
@@ -953,10 +966,12 @@ hr{
 	border-top: 1px solid #fff;
 	transition:all 1s ease;
 }
-
+#RegPrecios input[type="checkbox"]:nth-of-type(1){
+	margin-left: 5em;
+}
 #for{
 	background-color:#7E8489;
-	padding: 0.8em;
+	padding: 1.2em;
 	margin: 0;
 }
 #for hr{
@@ -1099,10 +1114,11 @@ hr{
 	display: inline-block;
 	font-size:1em;
 	font-style:normal;
-	margin-bottom:5%;
+	margin-bottom:2%;
+	margin-left: 1em;
 	padding:0 0em 0.5em 0em;
 	vertical-align: top;
-	width: 15%;
+	width: 12%;
 	-webkit-border-radius: 5px;
 }
 #v{

@@ -37,7 +37,16 @@
 		  }); }
 	});
 
-	$(".btn1").click(function(){
+
+$("#pass").keyup(function (e) {
+    if (e.keyCode == 13) {
+       logeos();
+    }
+});
+$(".btn1").on("click",logeos);
+
+	function logeos(){
+
 		  var user = $("#user").val();
 		  var pas = $("#pass").val();
 		  var loged ="user="+user+"&pass="+pas;
@@ -65,7 +74,9 @@
 					return false;
 			  }
 		  });
-	});
+	}
+
+
 /*	$(".reg").click(function(){			document.location.href="index.php?d=4&p=2";	});*/
 		 $(".reg").click(function(){
 		 	  var titulo = $("#titulo").val();
