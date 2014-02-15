@@ -104,5 +104,62 @@ catch (PDOException $e){
 		echo $e->getMessage();
 	}
 }
+//senguda busqueda listado de analisis
+elseif ($op==6) {
+	try{
+	$an=$_POST['analisis'];
+	$an=strtoupper($an);
+	$usuario="postgres";
+	$conn = new PDO('pgsql:host=127.0.0.1;dbname=sizas;',$usuario,$pass);
+	if($an==""){ $sql ="select * from precios order by id_analis ASC limit 90;";}
+		else{
+			$sql ="select * from precios where nombre_ana like '%$an%' order by id_analis ASC limit 15;";
+			}
+			echo "<div class='prelis'><table class='lis'><th>id</th>
+  			<th>nombre</th><th>precio</th><th>nota</th><th>iva</th><th>lugar</th>";
+	foreach ($conn->query($sql) as $an) {
+				  $nombre = $an['nombre_ana'];
+		          $id     = $an['id_analis'];
+		          $precio = $an['precio'];
+		          $nota   = $an['nota'];
+		          $lugar  =	$an['lugar'];
+		          $iva 	  =	$an['iva'];
+			echo "<tr><td>".$id."</td>";   
+			echo "<td>".$nombre."</td>";
+			echo "<td>$ ".$precio."</td>";
+			echo "<td>".$nota."</td>";
+			echo "<td>".$iva." % &nbsp;&nbsp;</td>";
+			echo "<td>".$lugar."</td>";
+			echo "</tr>";
+			}
+			echo "</table></div>";
+
+	}
+catch (PDOException $e){
+	echo $e->getMessage();
+
+}
+}
+////busqueda del paquete
+///
+elseif ($op==7) {
+	try{
+		$paq=$_POST['paq'];
+		$ana=strtoupper($paq);
+		$usuario="postgres";
+		$conn=new PDO('pgsql:host=127.0.0.1;dbname=sizas;',$usuario,$pass);
+		$sql="select nombre,id_paquete from paquetes where nombre like '%$ana%' limit 3;";
+		foreach ($conn ->query($sql) as $d) {
+			if(pg_fetch_array($d)>0){}else{
+			$nombre=$d['nombre'];
+			$id=$d['id_paquete'];
+			echo '<li onClick="NaPa(\''.$id.','.$nombre.'\');">'.$nombre.'</li>';
+			}
+		}
+	}
+	catch (PDOException $e){
+		echo $e->getMessage();
+	}
+}
 
 ?>

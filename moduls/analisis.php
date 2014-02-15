@@ -1,9 +1,16 @@
 <article class="main">
 <div id="analisis">
-<label><h2>ALTA DE ANALISIS</h2></label>
+
 <div id="altestudio">ALTA ESTUDIOS</div>
+<div id="altestudio">MODIFICAR ESTUDIOS</div>
 <div id="altpaquete">ALTA DE PAQUETES</div>
-<?php/*
+<div id="altpaquete">MODIFICAR PAQUETES</div>
+<label><h2> </h2></label>
+<?php
+/*
+////////////////////////////////////////////
+///// generaba la lista de analisis que faltavan por dar de alta 
+////////////////////////////////////////////////
 include_once 'includes/inset.php';
 
 $bus_anal="select id_analis,nombre_ana from precios where nombre_ana not in(select nombre from analisis) and lugar='SIZA' and id_analis not in(select id_grup from grupos) order by id_analis ASC";

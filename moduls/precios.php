@@ -6,34 +6,13 @@
 <label  class="liga" id="LisPrecio">Lista de Precios</label>
 
 <div id="LisPrecios">
-<h2>Listado de Precios</h2>
-<?php
-
-include_once 'login.php';
-$lis_P="select * from precios order by id_analis DESC limit 25";
-$listado = pg_query($conn, $lis_P);
-if(pg_num_rows($listado)>0){
-  echo "<div class='prelis'><table class='lis'><th>id</th>
-  <th>nombre</th><th>precio</th><th>nota</th><th>iva</th><th>lugar</th>";
- while ($p=pg_fetch_assoc($listado)) {
-          $nombre = $p['nombre_ana'];
-          $id     = $p['id_analis'];
-          $precio = $p['precio'];
-          $nota    = $p['nota'];
-          $lugar  =$p['lugar'];
-          $iva =$p['iva'];
-echo "<tr><td>".$id."</td>";   
-echo "<td>".$nombre."</td>";
-echo "<td>$ ".$precio."</td>";
-echo "<td>".$nota."</td>";
-echo "<td>".$iva." % &nbsp;&nbsp;</td>";
-echo "<td>".$lugar."</td>";
-echo "</tr>";
-  }echo "</table></div>";
-}else{
-  echo "<label>No hay analisis Registrados</label>";
-}
-?>
+  <div id="lisbus"><br>
+      <label >buscar<span class="icon">z</span>
+        <input type="text" class="clr" id="buscarlista" placeholder="Analisis a buscar" autocomplete="off"  >
+      </label>
+  
+  </div>
+<div id="lis_pre"></div>
 </div>
 <div id="RegPrecios">
   <div id="precios">

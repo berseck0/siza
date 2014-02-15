@@ -1,40 +1,62 @@
 <article class="main">
 <div id="analisis">
-<h2>Datos del Analisis</h2>
+<h3>Datos de los Paquetes</h3>
 <form name="aki" action="" method="post">
-      <fieldset class="valores">
-        <label><b>Nombre del Analisis:</b></label>
-            <input type='text' size='28' maxlength='50' name='nom_anal' value='<?=$noms2?>'/>
-            <label>añadir sub-analisis</label>
+      <fieldset class="valores"> 
+      <div id="seccion_valores">
+        <label>Crear Paquete</label>
+        <input type="text" id="nompaq" name="nom_paquete" placeholder="nombre">
+        <input type="text" id="precio" name="precio" size="10" placeholder="precio">
+        <input type="button" name="reg_paquete" value="Registrar" id="reg_paq">
+      </div><br><hr>
+      <div id="seccion_valores"> 
+           <label>Nombre del Paquete:</label>
+                <div id="bs_txt1">
+                  <input type='text' name='nom_paq' size="28" autocomplete="off" placeholder="Nombre del Paquete" id="bs_paq" onblur="NaPa(thisValue)"/>
+                  
+                  <div id="menulista" style="display:none;">
+                     <div class="dropdown-caret" aria-hidden="true">
+                          <div class="caret-outer"></div>
+                          <div class="caret-inner"></div>
+                      </div>
+                       <ul class="bs_lis" id="bs_analis"></ul>
+                   </div>
+
+                   <input type="hidden" size="5" name="id" id="an_p">
+                </div>
+      </div>
+      <div id="seccion_valores"> 
+            <label>Añadir Analisis</label>
                 <div id="bs_txt">
                     <input type="text" name="bs_analisis" id="bs_analisis" placeholder="Nombre del analisis" autocomplete="off" onblur="fly(thisValue)">
-                    <ul class="bs_lis" id="bs_analis_ul" style="display:none;"></ul>
-                    <input type="button" id="btn_lis" name="ag_anlisis" value="añadir">
+                     <div id="menulista" class="menulista2" style="display:none;">
+                     <div class="dropdown-caret" aria-hidden="true">
+                          <div class="caret-outer"></div>
+                          <div class="caret-inner"></div>
+                      </div>
+                      <ul class="bs_lis" id="bs_analis_ul" ></ul>
+                    </div>
+                    <input type="button" id="btn_paq" name="ag_an_paq" value="añadir">
                 </div>
-            <input type='hidden' size='5' maxlength='50'  id="an_primario" name='id' value='<?=$sdi?>'/>
+       </div> 
+      </fieldset>
 
-        <label><b>Nombre del Valor:</b></label>
-           <input type="text" size="28" id="vref" maxlength="50" name="vref" />
-             <label><b>tipo:</b></label>
-            <select id="seleccion" onchange="selecto()" name="opcion">
-              <option>seleccione</option>
-              <option value="numerico">numerico</option>
-              <option value="texto">texto</option>
-            </select>
-      </fieldset><br>
-<div id="v">
+          <div id="v">
               
-           </div>
-             <br><fieldset  id="valore"><legend>Nota:</legend>
-             <textarea name="nota"></textarea></fieldset><br>
-                  Metodo: <input type='text' size='30' maxlength='60' name='metodo' />
-                  <input type="button" id="RegAnal" value="Enviar" name="enviar"/>
+          </div>
+              Metodo: <input type='text' size='30' maxlength='60' name='metodo' />
+              <input type="button" id="RegAnal" value="Enviar" name="enviar"/>
 
-                 </form> 
-
-                 <div><br/>
-                  <hr>
-        <h3>analis registrado</h3>
-                 </div>
-               </div>
+</form> 
+    <div>
+          <h3>Paquete registrado</h3>
+        
+          <div id="agregado">
+                  <!--a qui va la tabla de analisis agregados-->
+                  <?php 
+                  include "includes/lista_analsis_alta.php";
+                  ?>
+             </div>
+    </div>
+</div>
 </article>

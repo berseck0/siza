@@ -57,10 +57,9 @@ li a span{
 }
 
 .analisis_sol label span{
-    margin: 0.2em;
-    font-size: 1em;
+    margin: 0 0.5em;
+    font-size: 1.3em;
     color: #7d8184;
-    -webkit-transform: rotate(90deg); 
     transform: rotate(90deg);
 }
 nav li .icon{

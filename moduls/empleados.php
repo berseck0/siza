@@ -21,8 +21,8 @@ if($_SESSIO['tipo']==1){
 <form id="inicio" class="emp" method="POST" action="">
 <br>
 <div id="for">
-<label>Usuario:</label><input type="text" name="usuario"><br>
-<label>Contraseña:</label><input type="password" name="pass">
+<label>Usuario:</label><input type="text" name="usuario"><hr>
+<label>Contraseña:</label><input type="password" name="pass"><hr>
 </div>
 <div id="for">
 <label>Nombre:</label>
