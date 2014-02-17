@@ -22,13 +22,14 @@
                        <ul class="bs_lis" id="bs_analis"></ul>
                    </div>
 
-                   <input type="hidden" size="5" name="id" id="an_p">
+                   <input type="hidden" size="5" name="id" id="an_p1">
                 </div>
       </div>
       <div id="seccion_valores"> 
             <label>Añadir Analisis</label>
                 <div id="bs_txt">
                     <input type="text" name="bs_analisis" id="bs_analisis" placeholder="Nombre del analisis" autocomplete="off" onblur="fly(thisValue)">
+                     <input type="hidden" mame="id_an1" id="an_p" size="5">
                      <div id="menulista" class="menulista2" style="display:none;">
                      <div class="dropdown-caret" aria-hidden="true">
                           <div class="caret-outer"></div>

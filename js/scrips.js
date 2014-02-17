@@ -277,13 +277,13 @@ function regis2(){
 //////////////////////////////////////////////////
 $(document).on("ready",reg_anal)
 		function reg_anal(){
-			$("#RegAnal").on("click",registro);
-			$("#RegAnal2").on("click",registro);
+			$("#RegAnal") 	.on("click",registro);
+			$("#RegAnal2") 	.on("click",registro);
 			$("#altestudio").on("click",showreg);
 			$("#altpaquete").on("click",showpaq);
-			$('#btn_lis').on("click",agregalis);
-			$("#reg_paq").on("click",regpaque);
-			$("#bnt_paq").on("click",regana_paq);
+			$('#btn_lis') 	.on("click",agregalis);
+			$("#reg_paq") 	.on("click",regpaque);
+			$("#btn_paq") 	.on("click",regana_paq);
 		}
 	function showreg(){
 		 	document.location.href="index.php?d=1&p=2&ide=1";
@@ -328,16 +328,15 @@ function registro(){
 }
 
 function agregalis(){
-	var dato = $("#id_ana1").val();
+	var dato = $("#an_p1").val();
 	var anali= $("#an_p").val();
 	var liga ="includes/RegGrupos.php";
 	var text="an="+dato+"&op=1&an2="+anali;
-	alert(text);
 	$.post(liga,text,function(data){
 		if(data == 'exito'){
 			var ruta 	=	"includes/lista_analsis_alta.php";
 			var nombre 	=	$("#bs_analis1").val();
-			var txt 	=	"tip=3&sid="+anali+"&nom="+nombre;
+			var txt 	=	"tip=3&sid="+dato+"&nom="+nombre;
 			$.post(ruta,txt, function(data){
 					if(data.length>0){
 						$("#agregado").fadeOut(950);
@@ -366,7 +365,28 @@ function regpaque(){
 	});
 }
 function regana_paq(){
-	var analis = 	$("#bs_analisis").val();
+
+	var analis 	= 	$("#an_p1").val();
+	var dato 	=	$("#an_p").val();
+	var liga 	= 	"includes/RegGrupos.php";
+	var text 	= 	"an="+analis+"&an2="+dato+"&op=2";
+	$.post(liga,text,function(data){
+		if(data == 'exito'){
+			 var ruta 	=	"includes/lista_analsis_alta.php";
+			 var nombre = 	$("#bs_paq").val();
+			 var txt 	= 	"tip=3&sid="+analis+"&nombre="+nombre;
+
+			 $.post(liga,text, function(dat){
+			 	 if(dat.length>0){
+			 	 	$("#agregado").fadeOut('slow');
+			 	 	$("#agregado").html(dat);
+			 	 	$("$agregado").fadeIn('fast');	
+			 	 }
+			 });
+		}else{
+			alert(data);
+		}
+	});
 
 }
 
@@ -548,7 +568,7 @@ function NaPa(nombre){
 	var n 	= 	nombre.split(",");
 	$('#bs_paq').val(n[1]);
 	setTimeout("$('#menulista').hide();",200);
-	$("#an_p").attr('value', n[0]);//paso el id del analisis seleccionado
+	$("#an_p1").attr('value', n[0]);//paso el id del analisis seleccionado
 
 }
 
