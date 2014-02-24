@@ -7,7 +7,7 @@
 			if(!$td){
 				echo $sql;
 			}
-			if(pg_num_rows($td)>0){
+		if(pg_num_rows($td)>0){
 			echo "<table><th>id</th><th>nombre</th><th>precio</th><th>Eliminar</th>";
 			while($an=pg_fetch_array($td)){
 				$noman=$an['nombre_anal'];

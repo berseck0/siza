@@ -26,7 +26,7 @@ elseif ($op==2) {
 	$an=strtoupper($an);
 	$usuario="postgres";
 	$conn = new PDO('pgsql:host=127.0.0.1;dbname=sizas;',$usuario,$pass);
-	$sql ="select * from precios where nombre_ana like '%$an%' limit 7";
+	$sql ="select nombre_ana,precio,id_analis from precios where nombre_ana like '%$an%' limit 7";
 	echo "<table width='100%'>
 	<th>id</th><th>nombre</th><th>precio</th>";
 	foreach ($conn->query($sql) as $an) {
@@ -148,12 +148,13 @@ elseif ($op==7) {
 		$ana=strtoupper($paq);
 		$usuario="postgres";
 		$conn=new PDO('pgsql:host=127.0.0.1;dbname=sizas;',$usuario,$pass);
-		$sql="select nombre,id_paquete from paquetes where nombre like '%$ana%' limit 3;";
+		$sql="select nombre_ana,id_analis,precio from precios where nombre_ana like '%$ana%' and paquete=1 limit 3;";
 		foreach ($conn ->query($sql) as $d) {
 			if(pg_fetch_array($d)>0){}else{
-			$nombre=$d['nombre'];
-			$id=$d['id_paquete'];
-			echo '<li onClick="NaPa(\''.$id.','.$nombre.'\');">'.$nombre.'</li>';
+			$nombre=$d['nombre_ana'];
+			$id=$d['id_analis'];
+			$pre =$d['precio'];
+			echo '<li onClick="NaPa(\''.$id.','.$nombre.','.$pre.'\');">'.$nombre.'</li>';
 			}
 		}
 	}

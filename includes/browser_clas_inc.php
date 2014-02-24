@@ -116,12 +116,6 @@ return 'Windows 7';
 elseif (strpos($useragent, 'windows nt 6.0') !== FALSE) {
 return 'Windows Vista';
 }
-elseif (strpos($useragent, 'windows 98') !== FALSE) {
-return 'Windows 98';
-}
-elseif (strpos($useragent, 'windows nt 5.0') !== FALSE) {
-return 'Windows 2000';
-}
 elseif (strpos($useragent, 'windows nt 5.2') !== FALSE) {
 return 'Windows 2003 Server';
 }

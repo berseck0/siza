@@ -2,9 +2,9 @@
 <div id="analisis">
 
 <div id="altestudio">ALTA ESTUDIOS</div>
-<div id="altestudio">MODIFICAR ESTUDIOS</div>
+<div id="modestudio">MODIFICAR ESTUDIOS</div>
 <div id="altpaquete">ALTA DE PAQUETES</div>
-<div id="altpaquete">MODIFICAR PAQUETES</div>
+<div id="modpaquete">MODIFICAR PAQUETES</div>
 <label><h2> </h2></label>
 <?php
 /*
@@ -34,10 +34,16 @@ if(pg_num_rows($sh)>0){
 $p=$_GET['p'];
 $sdi=$_GET['ide'];
 if($p==2){
-if ($sdi==1) {
-  include 'altaestudio.php';
-}else if($sdi==2){
-  include 'altapaquete.php';
-}
+  if ($sdi==1) {
+    include 'altaestudio.php';
+  }else if($sdi==2){
+    include 'altapaquete.php';
+  }elseif ($sdi==3) {
+    include 'modifpaquete.php';
+  }elseif ($sdi==4) {
+    include 'modifiestudio.php';
+  }
+
+
 }
 ?>

@@ -15,7 +15,7 @@
                   <input type='text' name='nom_paq' size="28" autocomplete="off" placeholder="Nombre del Paquete" id="bs_paq" onblur="NaPa(thisValue)"/>
                   
                   <div id="menulista" style="display:none;">
-                     <div class="dropdown-caret" aria-hidden="true">
+                     <div class="dropdown" aria-hidden="true">
                           <div class="caret-outer"></div>
                           <div class="caret-inner"></div>
                       </div>
@@ -31,7 +31,7 @@
                     <input type="text" name="bs_analisis" id="bs_analisis" placeholder="Nombre del analisis" autocomplete="off" onblur="fly(thisValue)">
                      <input type="hidden" mame="id_an1" id="an_p" size="5">
                      <div id="menulista" class="menulista2" style="display:none;">
-                     <div class="dropdown-caret" aria-hidden="true">
+                     <div class="dropdown" aria-hidden="true">
                           <div class="caret-outer"></div>
                           <div class="caret-inner"></div>
                       </div>

@@ -81,6 +81,6 @@ if($tipo == 3){
     }
 }
   if($tipo ==""){
-  echo "<label>Aun no registra el analisis con sus valores de referencia</label>";
+  echo "<h4><label>Aun no tiene registros visibles</label></h4>";
  }
 ?>
